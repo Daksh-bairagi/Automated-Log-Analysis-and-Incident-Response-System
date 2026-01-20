@@ -1,0 +1,3 @@
+2026-01-18 10:15:30 INFO System CPU usage normal
+2026-01-18 10:16:05 WARNING System Memory usage above 80%
+2026-01-18 10:17:10 ERROR System Disk space critically low
