@@ -1,0 +1,11 @@
+Auto Incident Response 
+
+When critical incidents occur,
+the system can:
+• Block IPs
+• Restart services
+• Isolate affected components
+
+This is optional → implemented using <<extend>>.
+
+#IncidentResponse #Automation
