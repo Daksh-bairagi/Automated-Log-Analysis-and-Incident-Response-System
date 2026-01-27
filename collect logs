@@ -1,0 +1,10 @@
+Collect Logs is the foundation of my system.
+
+Logs are collected from:
+• Application Servers
+• System Servers
+
+If log collection fails,
+the entire incident response fails.
+
+#LogManagement #SystemDesign
