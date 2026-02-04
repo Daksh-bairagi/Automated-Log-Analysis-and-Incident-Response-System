@@ -1,5 +1,5 @@
+
 Log processing flow in my project
 
 Collect Logs → Preprocess Logs → Analyze Logs
 → Detect Anomalies → Classify Incidents → Generate Alerts
-
