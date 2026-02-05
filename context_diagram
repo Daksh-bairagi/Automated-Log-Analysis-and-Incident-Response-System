@@ -1,0 +1,19 @@
+ Context Diagram (Level-0 DFD) – Theory
+
+Explain in words:
+
+Single process: Automated Log Analysis & Incident Response System
+
+Data received:
+
+Logs
+
+Configuration rules
+
+Data sent:
+
+Alerts
+
+Incident reports
+
+Response action
