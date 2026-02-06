@@ -1,0 +1,283 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.7">
+  <diagram name="Level 1 DFD - Log Analysis System" id="log-analysis-level1">
+    <mxGraphModel dx="2251" dy="965" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" value="Level 1 DFD - Automated Log Analysis and Incident Response System" vertex="1">
+          <mxGeometry height="40" width="800" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-security-analyst" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e74c3c;strokeColor=#c0392b;fontColor=#FFFFFF;fontStyle=1" value="Security Analyst" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-sys-admin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27ae60;strokeColor=#229954;fontColor=#FFFFFF;fontStyle=1" value="System Administrator" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-devops" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9b59b6;strokeColor=#8e44ad;fontColor=#FFFFFF;fontStyle=1" value="DevOps Engineer" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-app-servers" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3498db;strokeColor=#2980b9;fontColor=#FFFFFF;fontStyle=1" value="Application Servers" vertex="1">
+          <mxGeometry height="60" width="120" x="1440" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-sys-servers" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3498db;strokeColor=#2980b9;fontColor=#FFFFFF;fontStyle=1" value="System Servers" vertex="1">
+          <mxGeometry height="60" width="120" x="1440" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-alert-system" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f39c12;strokeColor=#d68910;fontColor=#FFFFFF;fontStyle=1" value="Alert Notification System" vertex="1">
+          <mxGeometry height="60" width="120" x="1440" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="entity-ml-engine" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#16a085;strokeColor=#138d75;fontColor=#FFFFFF;fontStyle=1" value="Machine Learning Engine" vertex="1">
+          <mxGeometry height="60" width="120" x="1440" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="process-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="1.0&lt;br&gt;Collect Logs" vertex="1">
+          <mxGeometry height="100" width="100" x="1200" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="process-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="2.0&lt;br&gt;Preprocess Logs" vertex="1">
+          <mxGeometry height="100" width="100" x="1020" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="process-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="3.0&lt;br&gt;Analyze Logs" vertex="1">
+          <mxGeometry height="100" width="100" x="280" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="process-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="4.0&lt;br&gt;Detect Anomalies" vertex="1">
+          <mxGeometry height="100" width="100" x="620" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="process-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="5.0&lt;br&gt;Classify Incidents" vertex="1">
+          <mxGeometry height="100" width="100" x="850" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="process-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="6.0&lt;br&gt;Generate Alerts" vertex="1">
+          <mxGeometry height="100" width="100" x="1080" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="process-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="7.0&lt;br&gt;View Reports" vertex="1">
+          <mxGeometry height="100" width="100" x="280" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="process-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="8.0&lt;br&gt;Configure Rules" vertex="1">
+          <mxGeometry height="100" width="100" x="280" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="process-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="9.0&lt;br&gt;Manage Users" vertex="1">
+          <mxGeometry height="100" width="100" x="280" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="process-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="10.0&lt;br&gt;Monitor System Status" vertex="1">
+          <mxGeometry height="100" width="100" x="280" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="process-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="11.0&lt;br&gt;Execute Auto Response" vertex="1">
+          <mxGeometry height="100" width="100" x="1080" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="datastore-1" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#ecf0f1;strokeColor=#2c3e50;fontStyle=1;align=left;spacingLeft=10" value="D1: Raw Logs DB" vertex="1">
+          <mxGeometry height="40" width="140" x="1020" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="datastore-2" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#ecf0f1;strokeColor=#2c3e50;fontStyle=1;align=left;spacingLeft=10" value="D2: Processed Logs DB" vertex="1">
+          <mxGeometry height="40" width="160" x="720" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="datastore-3" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#ecf0f1;strokeColor=#2c3e50;fontStyle=1;align=left;spacingLeft=10" value="D3: Incidents DB" vertex="1">
+          <mxGeometry height="40" width="140" x="620" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="datastore-4" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#ecf0f1;strokeColor=#2c3e50;fontStyle=1;align=left;spacingLeft=10" value="D4: Detection Rules" vertex="1">
+          <mxGeometry height="40" width="140" x="620" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="datastore-5" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#ecf0f1;strokeColor=#2c3e50;fontStyle=1;align=left;spacingLeft=10" value="D5: User Access DB" vertex="1">
+          <mxGeometry height="40" width="140" x="480" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="datastore-6" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#ecf0f1;strokeColor=#2c3e50;fontStyle=1;align=left;spacingLeft=10" value="D6: System Status Metrics" vertex="1">
+          <mxGeometry height="40" width="180" x="480" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="flow-1" edge="1" parent="1" source="entity-app-servers" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-1" value="Raw application logs">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-2" edge="1" parent="1" source="entity-sys-servers" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-1" value="Raw system logs">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-3" edge="1" parent="1" source="process-1" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="datastore-1" value="Store raw logs">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-4" edge="1" parent="1" source="datastore-1" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-2" value="Raw logs">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-5" edge="1" parent="1" source="process-2" style="endArrow=classic;html=1;rounded=0;exitX=0.2;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="datastore-2" value="Processed logs">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-6" edge="1" parent="1" source="entity-security-analyst" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="process-3" value="Analysis queries">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-7" edge="1" parent="1" source="datastore-2" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.8;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-3" value="Processed logs">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-8" edge="1" parent="1" source="process-3" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="entity-security-analyst" value="Analysis results">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-9" edge="1" parent="1" source="process-3" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-4" value="Analyzed data">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-10" edge="1" parent="1" source="datastore-4" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="process-4" value="Detection rules">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-11" edge="1" parent="1" source="datastore-2" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-4" value="Processed logs">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-12" edge="1" parent="1" source="process-4" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.8;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="process-5" value="Anomalies detected">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-13" edge="1" parent="1" source="process-5" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="datastore-3" value="Classified incidents">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-14" edge="1" parent="1" source="process-5" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="process-6" value="Incident alerts">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-15" edge="1" parent="1" source="process-6" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="entity-alert-system" value="Alert notifications">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-16" edge="1" parent="1" source="process-6" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="process-11" value="Critical alerts">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-17" edge="1" parent="1" source="entity-security-analyst" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-7" value="Report requests">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-18" edge="1" parent="1" source="datastore-3" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-7" value="Incident data">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-19" edge="1" parent="1" source="process-7" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="entity-security-analyst" value="Incident reports">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-20" edge="1" parent="1" source="entity-sys-admin" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="process-8" value="Configuration updates">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-21" edge="1" parent="1" source="process-8" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="datastore-4" value="Updated rules">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-22" edge="1" parent="1" source="entity-ml-engine" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="datastore-4" value="ML insights">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-23" edge="1" parent="1" source="entity-sys-admin" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-9" value="User management">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-24" edge="1" parent="1" source="process-9" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="datastore-5" value="User data">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-25" edge="1" parent="1" source="entity-devops" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="process-10" value="Status queries">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-26" edge="1" parent="1" source="process-10" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="datastore-6" value="Metrics data">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-27" edge="1" parent="1" source="datastore-6" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.8;entryDx=0;entryDy=0;entryPerimeter=0;" target="process-10" value="Status metrics">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-28" edge="1" parent="1" source="process-10" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="entity-devops" value="Status information">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-29" edge="1" parent="1" source="process-11" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="entity-app-servers" value="Auto-response actions">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-30" edge="1" parent="1" source="process-11" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="entity-sys-servers" value="Auto-response actions">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="800" y="400" as="sourcePoint" />
+            <mxPoint x="850" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" value="Legend" vertex="1">
+          <mxGeometry height="30" width="80" x="40" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-process" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#667eea;strokeColor=#2c3e50;fontColor=#FFFFFF;fontStyle=1;strokeWidth=2" value="Process" vertex="1">
+          <mxGeometry height="50" width="50" x="40" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-entity" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e74c3c;strokeColor=#c0392b;fontColor=#FFFFFF;fontStyle=1" value="External Entity" vertex="1">
+          <mxGeometry height="50" width="100" x="150" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-datastore" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#ecf0f1;strokeColor=#2c3e50;fontStyle=1;align=left;spacingLeft=10" value="Data Store" vertex="1">
+          <mxGeometry height="50" width="120" x="310" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-flow" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="Data Flow">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="490" y="1065" as="sourcePoint" />
+            <mxPoint x="590" y="1065" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

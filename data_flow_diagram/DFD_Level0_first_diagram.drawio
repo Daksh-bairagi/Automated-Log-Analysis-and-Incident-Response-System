@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.7">
+  <diagram name="Page-1" id="log-analysis-system">
+    <mxGraphModel dx="1813" dy="842" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="central-system" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#5B7EC8;strokeColor=#4967A0;fontSize=18;fontColor=#FFFFFF;fontStyle=1;align=center;" value="Log Analysis &amp;&#xa;Incident Response&#xa;System" vertex="1">
+          <mxGeometry height="300" width="300" x="600" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="security-analyst" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E55454;strokeColor=#C73E3E;fontSize=16;fontColor=#FFFFFF;fontStyle=1;" value="Security&#xa;Analyst" vertex="1">
+          <mxGeometry height="100" width="150" x="80" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="system-admin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#388E3C;fontSize=16;fontColor=#FFFFFF;fontStyle=1;" value="System&#xa;Administrator" vertex="1">
+          <mxGeometry height="100" width="150" x="80" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="devops-engineer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9C27B0;strokeColor=#7B1FA2;fontSize=16;fontColor=#FFFFFF;fontStyle=1;" value="DevOps&#xa;Engineer" vertex="1">
+          <mxGeometry height="100" width="150" x="80" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="app-servers" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontSize=16;fontColor=#FFFFFF;fontStyle=1;" value="Application&#xa;Servers" vertex="1">
+          <mxGeometry height="100" width="150" x="1280" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="system-servers" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2196F3;strokeColor=#1976D2;fontSize=16;fontColor=#FFFFFF;fontStyle=1;" value="System&#xa;Servers" vertex="1">
+          <mxGeometry height="100" width="150" x="1280" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="alert-system" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;fontSize=16;fontColor=#FFFFFF;fontStyle=1;" value="Alert&#xa;Notification&#xa;System" vertex="1">
+          <mxGeometry height="100" width="150" x="1280" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="ml-engine" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#009688;strokeColor=#00796B;fontSize=16;fontColor=#FFFFFF;fontStyle=1;" value="Machine Learning&#xa;Engine" vertex="1">
+          <mxGeometry height="100" width="150" x="1280" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="security-analyst" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.383;entryY=0;entryDx=0;entryDy=0;fontSize=12;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryPerimeter=0;" target="central-system" value="Analysis Requests">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="central-system" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.222;exitY=0.101;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fontSize=12;startArrow=classic;startFill=1;endArrow=none;endFill=0;exitPerimeter=0;" target="security-analyst" value="Reports &amp; Alerts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="system-admin" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startArrow=none;startFill=0;endArrow=classic;endFill=1;" target="central-system" value="Config &amp; Access Mgmt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="central-system" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.65;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fontSize=12;startArrow=classic;startFill=1;endArrow=none;endFill=0;exitPerimeter=0;" target="system-admin" value="System Status">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="devops-engineer" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startArrow=classicThin;startFill=1;endArrow=none;endFill=0;" target="central-system" value="Status Info">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="680" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" edge="1" parent="1" source="devops-engineer" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;fontSize=12;startArrow=none;startFill=0;endArrow=classic;endFill=1;" target="central-system" value="Monitor Requests">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" edge="1" parent="1" source="app-servers" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=12;startArrow=none;startFill=0;endArrow=classic;endFill=1;" value="Raw Logs">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="870" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" edge="1" parent="1" source="system-servers" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.4;entryDx=0;entryDy=0;fontSize=12;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryPerimeter=0;" target="central-system" value="System Logs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" edge="1" parent="1" source="central-system" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.6;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startArrow=none;startFill=0;endArrow=classic;endFill=1;exitPerimeter=0;" target="alert-system" value="Alert Notifications">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" edge="1" parent="1" source="central-system" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;fontSize=12;startArrow=none;startFill=0;endArrow=classic;endFill=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="ml-engine" value="Detection Rules">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1260" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge11" edge="1" parent="1" source="central-system" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.751;exitY=0.941;exitDx=0;exitDy=0;fontSize=12;startArrow=classic;startFill=1;endArrow=none;endFill=0;exitPerimeter=0;" value="ML Insights">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1270" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
