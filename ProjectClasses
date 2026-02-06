@@ -1,0 +1,459 @@
+# **Class Diagram - Log Analysis & Incident Response System**
+
+## **1. User Management Classes**
+
+### **Class: User**
+```
+Attributes:
+- userId: string (private)
+- username: string (private)
+- email: string (private)
+- passwordHash: string (private)
+- role: UserRole (private)
+- createdAt: Date (private)
+- lastLogin: Date (private)
+- isActive: boolean (private)
+
+Methods:
++ login(username: string, password: string): AuthToken (public)
++ logout(): void (public)
++ updateProfile(userData: Object): boolean (public)
++ changePassword(oldPass: string, newPass: string): boolean (public)
+- validatePassword(password: string): boolean (private)
+- hashPassword(password: string): string (private)
++ getRole(): UserRole (public)
++ hasPermission(permission: string): boolean (public)
+```
+
+### **Class: SecurityAnalyst** (extends User)
+```
+Attributes:
+- department: string (private)
+- clearanceLevel: number (private)
+- assignedIncidents: Incident[] (private)
+
+Methods:
++ viewIncidentReports(filters: Object): Incident[] (public)
++ analyzeLog(logId: string): AnalysisResult (public)
++ classifyIncident(incidentId: string, severity: string): boolean (public)
++ requestDetailedAnalysis(logId: string): void (public)
++ generateReport(incidentId: string): Report (public)
++ escalateIncident(incidentId: string): void (public)
+```
+
+### **Class: SystemAdministrator** (extends User)
+```
+Attributes:
+- adminLevel: number (private)
+- managedSystems: string[] (private)
+
+Methods:
++ configureDetectionRules(rules: DetectionRule[]): boolean (public)
++ manageUserAccess(userId: string, permissions: string[]): boolean (public)
++ updateSystemSettings(config: Object): boolean (public)
++ viewSystemLogs(): Log[] (public)
++ createUser(userData: Object): User (public)
++ deleteUser(userId: string): boolean (public)
++ assignRole(userId: string, role: UserRole): boolean (public)
+```
+
+### **Class: DevOpsEngineer** (extends User)
+```
+Attributes:
+- teamName: string (private)
+- monitoredServices: string[] (private)
+
+Methods:
++ monitorSystemStatus(): SystemStatus (public)
++ viewPerformanceMetrics(): Metrics (public)
++ configureAlerts(alertConfig: Object): boolean (public)
++ restartService(serviceName: string): boolean (public)
++ deployUpdate(version: string): boolean (public)
++ viewSystemHealth(): HealthReport (public)
+```
+
+---
+
+## **2. Log Management Classes**
+
+### **Class: Log**
+```
+Attributes:
+- logId: string (private)
+- timestamp: Date (private)
+- source: string (private)
+- logLevel: LogLevel (private)
+- message: string (private)
+- metadata: Object (private)
+- ipAddress: string (private)
+- userId: string (private)
+- isProcessed: boolean (private)
+
+Methods:
++ getId(): string (public)
++ getTimestamp(): Date (public)
++ getSource(): string (public)
++ getMessage(): string (public)
++ getMetadata(): Object (public)
++ markAsProcessed(): void (public)
+- sanitizeData(): void (private)
++ toJSON(): Object (public)
+```
+
+### **Class: LogCollector**
+```
+Attributes:
+- collectorId: string (private)
+- sources: LogSource[] (private)
+- isActive: boolean (private)
+- collectionRate: number (private)
+
+Methods:
++ collectLogs(): Log[] (public)
++ addSource(source: LogSource): boolean (public)
++ removeSource(sourceId: string): boolean (public)
++ startCollection(): void (public)
++ stopCollection(): void (public)
+- validateLogFormat(log: Object): boolean (private)
+- parseLogEntry(rawLog: string): Log (private)
++ getCollectionStats(): Object (public)
+```
+
+### **Class: LogPreprocessor**
+```
+Attributes:
+- preprocessorId: string (private)
+- filters: Filter[] (private)
+- transformations: Transformation[] (private)
+
+Methods:
++ preprocessLog(log: Log): ProcessedLog (public)
++ cleanData(log: Log): Log (public)
++ normalizeFormat(log: Log): Log (public)
++ enrichMetadata(log: Log): Log (public)
+- removeNoise(log: Log): Log (private)
+- standardizeTimestamp(timestamp: string): Date (private)
++ validateLog(log: Log): boolean (public)
++ batchPreprocess(logs: Log[]): ProcessedLog[] (public)
+```
+
+### **Class: LogAnalyzer**
+```
+Attributes:
+- analyzerId: string (private)
+- analysisRules: AnalysisRule[] (private)
+- patterns: Pattern[] (private)
+
+Methods:
++ analyzeLog(log: ProcessedLog): AnalysisResult (public)
++ detectPatterns(logs: ProcessedLog[]): Pattern[] (public)
++ correlateEvents(logs: ProcessedLog[]): Correlation[] (public)
++ performStatisticalAnalysis(logs: ProcessedLog[]): Statistics (public)
+- applyRules(log: ProcessedLog): RuleResult[] (private)
+- calculateRiskScore(log: ProcessedLog): number (private)
++ generateInsights(analysisResults: AnalysisResult[]): Insight[] (public)
+```
+
+---
+
+## **3. Incident Management Classes**
+
+### **Class: Incident**
+```
+Attributes:
+- incidentId: string (private)
+- title: string (private)
+- description: string (private)
+- severity: SeverityLevel (private)
+- status: IncidentStatus (private)
+- createdAt: Date (private)
+- updatedAt: Date (private)
+- assignedTo: string (private)
+- relatedLogs: string[] (private)
+- tags: string[] (private)
+
+Methods:
++ getId(): string (public)
++ getSeverity(): SeverityLevel (public)
++ getStatus(): IncidentStatus (public)
++ updateStatus(status: IncidentStatus): void (public)
++ assignAnalyst(analystId: string): void (public)
++ addNote(note: string): void (public)
++ escalate(): void (public)
++ resolve(resolution: string): void (public)
+- calculatePriority(): number (private)
++ getTimeline(): Timeline[] (public)
+```
+
+### **Class: AnomalyDetector**
+```
+Attributes:
+- detectorId: string (private)
+- detectionRules: DetectionRule[] (private)
+- mlModel: MLModel (private)
+- threshold: number (private)
+- isActive: boolean (private)
+
+Methods:
++ detectAnomalies(logs: ProcessedLog[]): Anomaly[] (public)
++ applyMLModel(log: ProcessedLog): Prediction (public)
++ checkThresholds(metrics: Object): boolean (public)
++ identifyOutliers(data: number[]): number[] (public)
+- scoreAnomaly(log: ProcessedLog): number (private)
+- compareWithBaseline(log: ProcessedLog): boolean (private)
++ updateModel(trainingData: Object): void (public)
++ getAccuracy(): number (public)
+```
+
+### **Class: IncidentClassifier**
+```
+Attributes:
+- classifierId: string (private)
+- categories: Category[] (private)
+- classificationRules: Rule[] (private)
+
+Methods:
++ classifyIncident(anomaly: Anomaly): Incident (public)
++ determineSeverity(anomaly: Anomaly): SeverityLevel (public)
++ categorize(incident: Incident): Category (public)
++ assignPriority(incident: Incident): number (public)
+- matchRules(anomaly: Anomaly): Rule[] (private)
+- calculateImpact(anomaly: Anomaly): number (private)
++ suggestResponse(incident: Incident): ResponseAction[] (public)
+```
+
+---
+
+## **4. Alert & Response Classes**
+
+### **Class: Alert**
+```
+Attributes:
+- alertId: string (private)
+- incidentId: string (private)
+- alertType: AlertType (private)
+- severity: SeverityLevel (private)
+- message: string (private)
+- recipients: string[] (private)
+- createdAt: Date (private)
+- isSent: boolean (private)
+- isAcknowledged: boolean (private)
+
+Methods:
++ send(): boolean (public)
++ acknowledge(userId: string): void (public)
++ escalate(): void (public)
++ addRecipient(recipient: string): void (public)
++ getStatus(): AlertStatus (public)
+- formatMessage(): string (private)
+- selectChannel(): NotificationChannel (private)
++ markAsSent(): void (public)
+```
+
+### **Class: AlertGenerator**
+```
+Attributes:
+- generatorId: string (private)
+- alertRules: AlertRule[] (private)
+- notificationChannels: NotificationChannel[] (private)
+
+Methods:
++ generateAlert(incident: Incident): Alert (public)
++ createNotification(alert: Alert): Notification (public)
++ sendAlert(alert: Alert): boolean (public)
++ batchGenerateAlerts(incidents: Incident[]): Alert[] (public)
+- determineRecipients(incident: Incident): string[] (private)
+- selectPriority(severity: SeverityLevel): number (private)
++ configureAlertRules(rules: AlertRule[]): void (public)
+```
+
+### **Class: AutoResponseEngine**
+```
+Attributes:
+- engineId: string (private)
+- responsePlaybooks: Playbook[] (private)
+- executedActions: Action[] (private)
+- isEnabled: boolean (private)
+
+Methods:
++ executeResponse(incident: Incident): ResponseResult (public)
++ selectPlaybook(incident: Incident): Playbook (public)
++ performAction(action: Action): boolean (public)
++ isolateSystem(systemId: string): boolean (public)
++ blockIP(ipAddress: string): boolean (public)
++ revokeAccess(userId: string): boolean (public)
+- validateAction(action: Action): boolean (private)
+- logAction(action: Action): void (private)
++ rollbackAction(actionId: string): boolean (public)
++ getExecutionHistory(): Action[] (public)
+```
+
+---
+
+## **5. Configuration & System Classes**
+
+### **Class: DetectionRule**
+```
+Attributes:
+- ruleId: string (private)
+- ruleName: string (private)
+- condition: string (private)
+- threshold: number (private)
+- severity: SeverityLevel (private)
+- isActive: boolean (private)
+- createdBy: string (private)
+- lastModified: Date (private)
+
+Methods:
++ evaluate(log: ProcessedLog): boolean (public)
++ activate(): void (public)
++ deactivate(): void (public)
++ update(ruleData: Object): boolean (public)
+- parseCondition(): ConditionObject (private)
++ validate(): boolean (public)
++ toJSON(): Object (public)
+```
+
+### **Class: SystemMonitor**
+```
+Attributes:
+- monitorId: string (private)
+- metrics: Metric[] (private)
+- healthStatus: HealthStatus (private)
+- alertThresholds: Object (private)
+
+Methods:
++ getSystemStatus(): SystemStatus (public)
++ collectMetrics(): Metric[] (public)
++ checkHealth(): HealthStatus (public)
++ trackPerformance(): Performance (public)
++ getResourceUsage(): ResourceMetrics (public)
+- calculateUptime(): number (private)
+- checkDiskSpace(): number (private)
+- checkMemoryUsage(): number (private)
++ generateHealthReport(): Report (public)
+```
+
+### **Class: ConfigurationManager**
+```
+Attributes:
+- configId: string (private)
+- configurations: Map<string, Object> (private)
+- version: string (private)
+
+Methods:
++ getConfig(key: string): Object (public)
++ setConfig(key: string, value: Object): boolean (public)
++ updateConfig(configData: Object): boolean (public)
++ reloadConfig(): void (public)
++ exportConfig(): Object (public)
++ importConfig(configData: Object): boolean (public)
+- validateConfig(config: Object): boolean (private)
+- backupConfig(): void (private)
++ restoreConfig(version: string): boolean (public)
+```
+
+---
+
+## **6. Machine Learning Classes**
+
+### **Class: MLModel**
+```
+Attributes:
+- modelId: string (private)
+- modelType: string (private)
+- version: string (private)
+- accuracy: number (private)
+- trainingData: Object (private)
+- lastTrained: Date (private)
+
+Methods:
++ predict(input: Object): Prediction (public)
++ train(trainingData: Object): void (public)
++ evaluate(testData: Object): EvaluationMetrics (public)
++ updateModel(newData: Object): void (public)
+- preprocessInput(input: Object): Object (private)
+- normalize(data: Object): Object (private)
++ saveModel(): boolean (public)
++ loadModel(modelId: string): boolean (public)
++ getAccuracy(): number (public)
+```
+
+### **Class: MachineLearningEngine**
+```
+Attributes:
+- engineId: string (private)
+- models: MLModel[] (private)
+- trainingQueue: TrainingJob[] (private)
+- isTraining: boolean (private)
+
+Methods:
++ generateDetectionRules(): DetectionRule[] (public)
++ improveAccuracy(feedback: Feedback[]): void (public)
++ retrainModel(modelId: string): void (public)
++ deployModel(model: MLModel): boolean (public)
++ getBestModel(): MLModel (public)
+- selectFeatures(data: Object): string[] (private)
+- optimizeHyperparameters(): Object (private)
++ evaluateModels(): EvaluationReport (public)
+```
+
+---
+
+## **7. Report & Analytics Classes**
+
+### **Class: Report**
+```
+Attributes:
+- reportId: string (private)
+- title: string (private)
+- reportType: ReportType (private)
+- createdBy: string (private)
+- createdAt: Date (private)
+- data: Object (private)
+- format: ReportFormat (private)
+
+Methods:
++ generate(): ReportDocument (public)
++ export(format: ReportFormat): File (public)
++ addSection(section: ReportSection): void (public)
++ addChart(chart: Chart): void (public)
++ share(recipients: string[]): boolean (public)
+- formatData(): Object (private)
+- applyTemplate(): void (private)
++ schedule(frequency: string): void (public)
+```
+
+### **Class: ReportGenerator**
+```
+Attributes:
+- generatorId: string (private)
+- templates: Template[] (private)
+- scheduledReports: ScheduledReport[] (private)
+
+Methods:
++ createReport(config: ReportConfig): Report (public)
++ generateIncidentReport(incidentId: string): Report (public)
++ generatePerformanceReport(): Report (public)
++ generateTrendAnalysis(): Report (public)
++ scheduleReport(config: ScheduledReportConfig): void (public)
+- aggregateData(data: Object[]): Object (private)
+- createVisualizations(data: Object): Chart[] (private)
++ exportToPDF(report: Report): File (public)
++ exportToCSV(report: Report): File (public)
+```
+
+---
+
+## **Summary: Total Classes = 22**
+
+**Key Classes:**
+1. User, SecurityAnalyst, SystemAdministrator, DevOpsEngineer
+2. Log, LogCollector, LogPreprocessor, LogAnalyzer
+3. Incident, AnomalyDetector, IncidentClassifier
+4. Alert, AlertGenerator, AutoResponseEngine
+5. DetectionRule, SystemMonitor, ConfigurationManager
+6. MLModel, MachineLearningEngine
+7. Report, ReportGenerator
+
+This structure follows **SOLID principles** and enables easy maintenance and scalability! 🚀
