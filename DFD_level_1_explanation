@@ -1,7 +1,7 @@
 Level 1 DFD - Theory
 Purpose:
 The Level 1 DFD breaks down the central process into major sub-processes, showing internal data flows and data stores.
-Key Components in Your Diagram:
+Key Components in  Diagram:
 1. Processes (Numbered 1.0 - 10.0):
 
 1.0 Collect Logs - Gathers raw logs from application and system servers
