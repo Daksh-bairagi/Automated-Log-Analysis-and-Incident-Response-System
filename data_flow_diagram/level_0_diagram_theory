@@ -1,0 +1,22 @@
+Level 0 DFD (Context Diagram) - Theory
+Purpose:
+The Context Diagram provides a high-level view of the entire system, showing how it interacts with external entities without revealing internal processes.
+Key Components in Your Diagram:
+1. External Entities (Actors):
+
+Security Analyst - Initiates analysis requests and receives reports/alerts
+System Administrator - Manages system configuration and monitors status
+DevOps Engineer - Monitors system performance and receives status information
+Application Servers - Source of raw application logs
+System Servers - Source of system-level logs
+Alert Notification System - Receives and distributes alert notifications
+Machine Learning Engine - Provides ML insights and detection rules
+
+2. Central Process:
+
+Log Analysis & Incident Response System - The single process representing your entire system
+
+3. Data Flows:
+
+Inputs: Analysis Requests, Config & Access Mgmt, Monitor Requests, Raw Logs, System Logs, Detection Rules, ML Insights
+Outputs: Reports & Alerts, System Status, Status Info, Alert Notifications
