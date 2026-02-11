@@ -1,29 +1,29 @@
-## "Layered Architecture"
+# "Layered Architecture"
 
-# I-A. Justification Based on Component Granularity:
+## I-A. Justification Based on Component Granularity:
 -> our project follows a 'Layered Architecture' because it is structured into clearly separated layers with well-defined responsibilities.
-# Presentation Layer
+## Presentation Layer
 -> Dashboard / User Interface
 -> Displays logs, alerts, incident reports
 -> Allows users/admins to view system output
-# Application / Service Layer
+## Application / Service Layer
 -> Log Analyzer
 -> Incident Detector
 -> Severity Classifier
 -> Incident Response Handler
 -> Controls system workflow
-# Business Logic Layer
+## Business Logic Layer
 -> Rule Engine (detect anomalies)
 -> Pattern Matching
 -> Classification logic
 -> Decision-making for automated response
-# Data Layer
+## Data Layer
 -> Log storage (sample logs)
 -> Incident database
 -> Report storage
 -> File handling modules
 
-# Justification
+## Justification
 -> each layer has specific responsibilities
 -> Higher layers depend only on lower layers
 -> No direct interaction between Presentation and Data Layers
@@ -33,7 +33,7 @@
 -> Grouped into logical layers
 -> Separation of concerns maintained
 
-# I-B. Why Layered Architecture is Best
+## I-B. Why Layered Architecture is Best
 
 1. Scalability
 -> New detection algorithms can be added in Business Layer
