@@ -57,3 +57,56 @@
 ### 5. Reusability
 #### -> Log Analyzer module can be reused in other monitoring systems
 #### -> Response Engine can be integrated into other security systems
+
+## II. Components Present in the Project (Application Components):
+
+### 1. Log Collector Module
+#### -> Reads logs from files/system
+#### -> Supports structured log input
+
+### 2. Log Preprocessing Module
+#### -> Cleans logs
+#### -> Extracts important fields
+#### -> Formats data
+
+### 3. Log Analyzer Module
+#### -> Analyzes patterns
+#### -> Applies predefined rules
+
+### 4. Incident Detection Module
+#### -> Detects suspicious activity
+#### -> Identifies anomalies
+
+### 5. Severity Classification Module
+#### -> Classifies incidents as:
+#### Low
+#### Medium
+#### High
+
+### 6. Incident Response Module
+#### -> Triggers automated responses:
+#### Alerts
+#### Notifications
+#### Possible system action
+
+### 7. Database / Storage Module
+#### -> Stores logs
+#### -> Stores incident history
+#### -> Maintains reports
+
+### 8. Dashboard / Reporting Component
+#### -> Displays incidents
+#### -> Shows system summary
+#### -> Provides monitoring interface
+
+### 9. Configuration Module
+#### -> Manages rules
+#### -> Manages system parameters
+
+### 10. Sample Log Data Module
+#### -> Contains testing logs
+#### -> Used for simulation and validation
+
+
+
+
