@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UML Class Diagram - Log Analysis System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            font-size: 1.8em;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .svg-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        svg {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .legend {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .legend h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .legend-symbol {
+            width: 50px;
+            height: 40px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .relationship-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .relationship-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .relationship-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .relationship-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .class-box {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UML Class Diagram</h1>
+        <p class="subtitle">Automated Log Analysis and Incident Response System</p>
+        
+        <div class="note">
+            <h3>📌 Diagram Overview</h3>
+            <p>This comprehensive UML Class Diagram shows all 22 classes with complete relationships including:</p>
+            <ul>
+                <li><strong>Inheritance (Generalization):</strong> User hierarchy</li>
+                <li><strong>Association:</strong> Standard relationships between classes</li>
+                <li><strong>Aggregation:</strong> "has-a" relationships (weak ownership)</li>
+                <li><strong>Composition:</strong> "part-of" relationships (strong ownership)</li>
+                <li><strong>Dependency:</strong> Usage relationships</li>
+            </ul>
+        </div>
+
+        <h2>Complete UML Class Diagram</h2>
+        
+        <div class="svg-container">
+            <svg width="1900" height="2400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Define markers for different relationship types -->
+                <defs>
+                    <!-- Inheritance arrow (hollow triangle) -->
+                    <marker id="inheritance" markerWidth="15" markerHeight="15" refX="15" refY="7.5" orient="auto">
+                        <polygon points="0 0, 15 7.5, 0 15" fill="white" stroke="#2c3e50" stroke-width="2"/>
+                    </marker>
+                    
+                    <!-- Association arrow -->
+                    <marker id="association" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                        <polygon points="0 0, 10 5, 0 10" fill="#2c3e50"/>
+                    </marker>
+                    
+                    <!-- Aggregation (hollow diamond) -->
+                    <marker id="aggregation" markerWidth="15" markerHeight="15" refX="0" refY="7.5" orient="auto">
+                        <polygon points="0 7.5, 7.5 0, 15 7.5, 7.5 15" fill="white" stroke="#2c3e50" stroke-width="2"/>
+                    </marker>
+                    
+                    <!-- Composition (filled diamond) -->
+                    <marker id="composition" markerWidth="15" markerHeight="15" refX="0" refY="7.5" orient="auto">
+                        <polygon points="0 7.5, 7.5 0, 15 7.5, 7.5 15" fill="#2c3e50"/>
+                    </marker>
+                    
+                    <!-- Dependency (dashed arrow) -->
+                    <marker id="dependency" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                        <polygon points="0 0, 10 5, 0 10" fill="#666"/>
+                    </marker>
+                </defs>
+
+                <!-- USER HIERARCHY (Top Left) -->
+                <!-- User Base Class -->
+                <g id="User">
+                    <rect x="50" y="50" width="220" height="180" fill="#e8f5e9" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="50" y="50" width="220" height="30" fill="#4caf50" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="160" y="70" text-anchor="middle" fill="white" font-size="14" font-weight="bold">User</text>
+                    <line x1="50" y1="80" x2="270" y2="80" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="60" y="100" font-size="10" class="class-box">- userId: string</text>
+                    <text x="60" y="115" font-size="10" class="class-box">- username: string</text>
+                    <text x="60" y="130" font-size="10" class="class-box">- email: string</text>
+                    <text x="60" y="145" font-size="10" class="class-box">- passwordHash: string</text>
+                    <text x="60" y="160" font-size="10" class="class-box">- role: UserRole</text>
+                    <line x1="50" y1="170" x2="270" y2="170" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="60" y="185" font-size="10" class="class-box">+ login(): AuthToken</text>
+                    <text x="60" y="200" font-size="10" class="class-box">+ logout(): void</text>
+                    <text x="60" y="215" font-size="10" class="class-box">+ hasPermission(): bool</text>
+                </g>
+
+                <!-- SecurityAnalyst -->
+                <g id="SecurityAnalyst">
+                    <rect x="350" y="50" width="220" height="160" fill="#fff3e0" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="350" y="50" width="220" height="30" fill="#ff9800" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="460" y="70" text-anchor="middle" fill="white" font-size="13" font-weight="bold">SecurityAnalyst</text>
+                    <line x1="350" y1="80" x2="570" y2="80" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="360" y="100" font-size="10" class="class-box">- department: string</text>
+                    <text x="360" y="115" font-size="10" class="class-box">- clearanceLevel: number</text>
+                    <text x="360" y="130" font-size="10" class="class-box">- assignedIncidents: Incident[]</text>
+                    <line x1="350" y1="140" x2="570" y2="140" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="360" y="155" font-size="10" class="class-box">+ viewIncidentReports()</text>
+                    <text x="360" y="170" font-size="10" class="class-box">+ analyzeLog()</text>
+                    <text x="360" y="185" font-size="10" class="class-box">+ generateReport()</text>
+                    <text x="360" y="200" font-size="10" class="class-box">+ escalateIncident()</text>
+                </g>
+
+                <!-- SystemAdministrator -->
+                <g id="SystemAdministrator">
+                    <rect x="350" y="250" width="220" height="150" fill="#e3f2fd" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="350" y="250" width="220" height="30" fill="#2196f3" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="460" y="270" text-anchor="middle" fill="white" font-size="12" font-weight="bold">SystemAdministrator</text>
+                    <line x1="350" y1="280" x2="570" y2="280" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="360" y="300" font-size="10" class="class-box">- adminLevel: number</text>
+                    <text x="360" y="315" font-size="10" class="class-box">- managedSystems: string[]</text>
+                    <line x1="350" y1="325" x2="570" y2="325" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="360" y="340" font-size="10" class="class-box">+ configureDetectionRules()</text>
+                    <text x="360" y="355" font-size="10" class="class-box">+ manageUserAccess()</text>
+                    <text x="360" y="370" font-size="10" class="class-box">+ updateSystemSettings()</text>
+                    <text x="360" y="385" font-size="10" class="class-box">+ createUser()</text>
+                </g>
+
+                <!-- DevOpsEngineer -->
+                <g id="DevOpsEngineer">
+                    <rect x="350" y="440" width="220" height="140" fill="#f3e5f5" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="350" y="440" width="220" height="30" fill="#9c27b0" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="460" y="460" text-anchor="middle" fill="white" font-size="13" font-weight="bold">DevOpsEngineer</text>
+                    <line x1="350" y1="470" x2="570" y2="470" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="360" y="490" font-size="10" class="class-box">- teamName: string</text>
+                    <text x="360" y="505" font-size="10" class="class-box">- monitoredServices: string[]</text>
+                    <line x1="350" y1="515" x2="570" y2="515" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="360" y="530" font-size="10" class="class-box">+ monitorSystemStatus()</text>
+                    <text x="360" y="545" font-size="10" class="class-box">+ viewPerformanceMetrics()</text>
+                    <text x="360" y="560" font-size="10" class="class-box">+ configureAlerts()</text>
+                    <text x="360" y="575" font-size="10" class="class-box">+ deployUpdate()</text>
+                </g>
+
+                <!-- Inheritance relationships from User -->
+                <path d="M 270 135 L 350 125" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#inheritance)"/>
+                <path d="M 270 135 L 350 325" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#inheritance)"/>
+                <path d="M 270 180 L 350 510" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#inheritance)"/>
+
+                <!-- LOG MANAGEMENT CLASSES (Middle Left) -->
+                <!-- Log -->
+                <g id="Log">
+                    <rect x="50" y="650" width="200" height="160" fill="#fce4ec" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="50" y="650" width="200" height="30" fill="#e91e63" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="150" y="670" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Log</text>
+                    <line x1="50" y1="680" x2="250" y2="680" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="60" y="700" font-size="10" class="class-box">- logId: string</text>
+                    <text x="60" y="715" font-size="10" class="class-box">- timestamp: Date</text>
+                    <text x="60" y="730" font-size="10" class="class-box">- source: string</text>
+                    <text x="60" y="745" font-size="10" class="class-box">- logLevel: LogLevel</text>
+                    <text x="60" y="760" font-size="10" class="class-box">- message: string</text>
+                    <line x1="50" y1="770" x2="250" y2="770" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="60" y="785" font-size="10" class="class-box">+ getId(): string</text>
+                    <text x="60" y="800" font-size="10" class="class-box">+ markAsProcessed()</text>
+                </g>
+
+                <!-- LogCollector -->
+                <g id="LogCollector">
+                    <rect x="300" y="650" width="200" height="150" fill="#e0f2f1" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="300" y="650" width="200" height="30" fill="#009688" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="400" y="670" text-anchor="middle" fill="white" font-size="13" font-weight="bold">LogCollector</text>
+                    <line x1="300" y1="680" x2="500" y2="680" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="310" y="700" font-size="10" class="class-box">- collectorId: string</text>
+                    <text x="310" y="715" font-size="10" class="class-box">- sources: LogSource[]</text>
+                    <text x="310" y="730" font-size="10" class="class-box">- isActive: boolean</text>
+                    <line x1="300" y1="740" x2="500" y2="740" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="310" y="755" font-size="10" class="class-box">+ collectLogs(): Log[]</text>
+                    <text x="310" y="770" font-size="10" class="class-box">+ startCollection()</text>
+                    <text x="310" y="785" font-size="10" class="class-box">+ stopCollection()</text>
+                </g>
+
+                <!-- LogPreprocessor -->
+                <g id="LogPreprocessor">
+                    <rect x="550" y="650" width="200" height="150" fill="#fff9c4" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="550" y="650" width="200" height="30" fill="#fbc02d" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="650" y="670" text-anchor="middle" fill="white" font-size="12" font-weight="bold">LogPreprocessor</text>
+                    <line x1="550" y1="680" x2="750" y2="680" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="560" y="700" font-size="10" class="class-box">- preprocessorId: string</text>
+                    <text x="560" y="715" font-size="10" class="class-box">- filters: Filter[]</text>
+                    <text x="560" y="730" font-size="10" class="class-box">- transformations: []</text>
+                    <line x1="550" y1="740" x2="750" y2="740" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="560" y="755" font-size="10" class="class-box">+ preprocessLog()</text>
+                    <text x="560" y="770" font-size="10" class="class-box">+ cleanData()</text>
+                    <text x="560" y="785" font-size="10" class="class-box">+ normalizeFormat()</text>
+                </g>
+
+                <!-- LogAnalyzer -->
+                <g id="LogAnalyzer">
+                    <rect x="800" y="650" width="200" height="150" fill="#e1f5fe" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="800" y="650" width="200" height="30" fill="#03a9f4" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="900" y="670" text-anchor="middle" fill="white" font-size="13" font-weight="bold">LogAnalyzer</text>
+                    <line x1="800" y1="680" x2="1000" y2="680" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="810" y="700" font-size="10" class="class-box">- analyzerId: string</text>
+                    <text x="810" y="715" font-size="10" class="class-box">- analysisRules: Rule[]</text>
+                    <text x="810" y="730" font-size="10" class="class-box">- patterns: Pattern[]</text>
+                    <line x1="800" y1="740" x2="1000" y2="740" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="810" y="755" font-size="10" class="class-box">+ analyzeLog()</text>
+                    <text x="810" y="770" font-size="10" class="class-box">+ detectPatterns()</text>
+                    <text x="810" y="785" font-size="10" class="class-box">+ correlateEvents()</text>
+                </g>
+
+                <!-- Composition: LogCollector creates Logs -->
+                <path d="M 300 730 L 250 730" stroke="#2c3e50" stroke-width="2" fill="none" marker-start="url(#composition)"/>
+                <text x="260" y="720" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="745" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- Association: LogPreprocessor processes Logs -->
+                <path d="M 550 725 L 250 730" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="390" y="720" font-size="11" fill="#2c3e50">processes</text>
+                <text x="520" y="720" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="720" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- Association: LogAnalyzer analyzes Logs -->
+                <path d="M 800 725 L 250 735" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="510" y="725" font-size="11" fill="#2c3e50">analyzes</text>
+                <text x="770" y="720" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="750" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- INCIDENT MANAGEMENT CLASSES (Middle) -->
+                <!-- Incident -->
+                <g id="Incident">
+                    <rect x="50" y="900" width="200" height="160" fill="#ffebee" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="50" y="900" width="200" height="30" fill="#f44336" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="150" y="920" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Incident</text>
+                    <line x1="50" y1="930" x2="250" y2="930" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="60" y="950" font-size="10" class="class-box">- incidentId: string</text>
+                    <text x="60" y="965" font-size="10" class="class-box">- title: string</text>
+                    <text x="60" y="980" font-size="10" class="class-box">- severity: SeverityLevel</text>
+                    <text x="60" y="995" font-size="10" class="class-box">- status: IncidentStatus</text>
+                    <text x="60" y="1010" font-size="10" class="class-box">- relatedLogs: string[]</text>
+                    <line x1="50" y1="1020" x2="250" y2="1020" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="60" y="1035" font-size="10" class="class-box">+ updateStatus()</text>
+                    <text x="60" y="1050" font-size="10" class="class-box">+ escalate()</text>
+                </g>
+
+                <!-- AnomalyDetector -->
+                <g id="AnomalyDetector">
+                    <rect x="300" y="900" width="200" height="150" fill="#f3e5f5" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="300" y="900" width="200" height="30" fill="#9c27b0" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="400" y="920" text-anchor="middle" fill="white" font-size="12" font-weight="bold">AnomalyDetector</text>
+                    <line x1="300" y1="930" x2="500" y2="930" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="310" y="950" font-size="10" class="class-box">- detectorId: string</text>
+                    <text x="310" y="965" font-size="10" class="class-box">- detectionRules: Rule[]</text>
+                    <text x="310" y="980" font-size="10" class="class-box">- mlModel: MLModel</text>
+                    <text x="310" y="995" font-size="10" class="class-box">- threshold: number</text>
+                    <line x1="300" y1="1005" x2="500" y2="1005" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="310" y="1020" font-size="10" class="class-box">+ detectAnomalies()</text>
+                    <text x="310" y="1035" font-size="10" class="class-box">+ applyMLModel()</text>
+                </g>
+
+                <!-- IncidentClassifier -->
+                <g id="IncidentClassifier">
+                    <rect x="550" y="900" width="200" height="150" fill="#e8f5e9" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="550" y="900" width="200" height="30" fill="#4caf50" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="650" y="920" text-anchor="middle" fill="white" font-size="12" font-weight="bold">IncidentClassifier</text>
+                    <line x1="550" y1="930" x2="750" y2="930" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="560" y="950" font-size="10" class="class-box">- classifierId: string</text>
+                    <text x="560" y="965" font-size="10" class="class-box">- categories: Category[]</text>
+                    <text x="560" y="980" font-size="10" class="class-box">- classificationRules: []</text>
+                    <line x1="550" y1="990" x2="750" y2="990" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="560" y="1005" font-size="10" class="class-box">+ classifyIncident()</text>
+                    <text x="560" y="1020" font-size="10" class="class-box">+ determineSeverity()</text>
+                    <text x="560" y="1035" font-size="10" class="class-box">+ assignPriority()</text>
+                </g>
+
+                <!-- Dependency: AnomalyDetector uses LogAnalyzer -->
+                <path d="M 400 900 L 900 800" stroke="#666" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#dependency)"/>
+                <text x="640" y="845" font-size="11" fill="#666">«uses»</text>
+
+                <!-- Association: AnomalyDetector creates Incident -->
+                <path d="M 300 975 L 250 975" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="265" y="965" font-size="11" fill="#2c3e50">detects</text>
+                <text x="280" y="990" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="990" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- Association: IncidentClassifier classifies Incident -->
+                <path d="M 550 980 L 250 980" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="380" y="970" font-size="11" fill="#2c3e50">classifies</text>
+                <text x="520" y="995" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="995" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- ALERT & RESPONSE CLASSES -->
+                <!-- Alert -->
+                <g id="Alert">
+                    <rect x="50" y="1150" width="200" height="150" fill="#fff3e0" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="50" y="1150" width="200" height="30" fill="#ff9800" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="150" y="1170" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Alert</text>
+                    <line x1="50" y1="1180" x2="250" y2="1180" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="60" y="1200" font-size="10" class="class-box">- alertId: string</text>
+                    <text x="60" y="1215" font-size="10" class="class-box">- incidentId: string</text>
+                    <text x="60" y="1230" font-size="10" class="class-box">- severity: SeverityLevel</text>
+                    <text x="60" y="1245" font-size="10" class="class-box">- recipients: string[]</text>
+                    <line x1="50" y1="1255" x2="250" y2="1255" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="60" y="1270" font-size="10" class="class-box">+ send(): boolean</text>
+                    <text x="60" y="1285" font-size="10" class="class-box">+ acknowledge()</text>
+                </g>
+
+                <!-- AlertGenerator -->
+                <g id="AlertGenerator">
+                    <rect x="300" y="1150" width="200" height="140" fill="#e1f5fe" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="300" y="1150" width="200" height="30" fill="#03a9f4" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="400" y="1170" text-anchor="middle" fill="white" font-size="13" font-weight="bold">AlertGenerator</text>
+                    <line x1="300" y1="1180" x2="500" y2="1180" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="310" y="1200" font-size="10" class="class-box">- generatorId: string</text>
+                    <text x="310" y="1215" font-size="10" class="class-box">- alertRules: Rule[]</text>
+                    <text x="310" y="1230" font-size="10" class="class-box">- channels: Channel[]</text>
+                    <line x1="300" y1="1240" x2="500" y2="1240" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="310" y="1255" font-size="10" class="class-box">+ generateAlert()</text>
+                    <text x="310" y="1270" font-size="10" class="class-box">+ sendAlert()</text>
+                </g>
+
+                <!-- AutoResponseEngine -->
+                <g id="AutoResponseEngine">
+                    <rect x="550" y="1150" width="220" height="140" fill="#fce4ec" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="550" y="1150" width="220" height="30" fill="#e91e63" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="660" y="1170" text-anchor="middle" fill="white" font-size="12" font-weight="bold">AutoResponseEngine</text>
+                    <line x1="550" y1="1180" x2="770" y2="1180" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="560" y="1200" font-size="10" class="class-box">- engineId: string</text>
+                    <text x="560" y="1215" font-size="10" class="class-box">- responsePlaybooks: []</text>
+                    <text x="560" y="1230" font-size="10" class="class-box">- executedActions: Action[]</text>
+                    <line x1="550" y1="1240" x2="770" y2="1240" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="560" y="1255" font-size="10" class="class-box">+ executeResponse()</text>
+                    <text x="560" y="1270" font-size="10" class="class-box">+ isolateSystem()</text>
+                </g>
+
+                <!-- Composition: AlertGenerator creates Alert -->
+                <path d="M 300 1220 L 250 1220" stroke="#2c3e50" stroke-width="2" fill="none" marker-start="url(#composition)"/>
+                <text x="265" y="1210" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="1235" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- Association: Incident to Alert -->
+                <path d="M 150 1060 L 150 1150" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="160" y="1105" font-size="11" fill="#2c3e50">triggers</text>
+                <text x="160" y="1070" font-size="11" fill="#2c3e50">1</text>
+                <text x="160" y="1145" font-size="11" fill="#2c3e50">0..*</text>
+
+                <!-- Association: AlertGenerator uses Incident -->
+                <path d="M 300 1150 L 150 1060" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="220" y="1100" font-size="11" fill="#2c3e50">from</text>
+
+                <!-- Association: AutoResponseEngine responds to Alert -->
+                <path d="M 550 1220 L 250 1220" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="380" y="1210" font-size="11" fill="#2c3e50">responds to</text>
+                <text x="520" y="1235" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="1235" font-size="11" fill="#2c3e50">1</text>
+
+                <!-- CONFIGURATION CLASSES (Right Side) -->
+                <!-- DetectionRule -->
+                <g id="DetectionRule">
+                    <rect x="1050" y="900" width="200" height="150" fill="#e8eaf6" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="1050" y="900" width="200" height="30" fill="#3f51b5" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="1150" y="920" text-anchor="middle" fill="white" font-size="13" font-weight="bold">DetectionRule</text>
+                    <line x1="1050" y1="930" x2="1250" y2="930" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="1060" y="950" font-size="10" class="class-box">- ruleId: string</text>
+                    <text x="1060" y="965" font-size="10" class="class-box">- ruleName: string</text>
+                    <text x="1060" y="980" font-size="10" class="class-box">- condition: string</text>
+                    <text x="1060" y="995" font-size="10" class="class-box">- threshold: number</text>
+                    <line x1="1050" y1="1005" x2="1250" y2="1005" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="1060" y="1020" font-size="10" class="class-box">+ evaluate(): boolean</text>
+                    <text x="1060" y="1035" font-size="10" class="class-box">+ activate()</text>
+                </g>
+
+                <!-- SystemMonitor -->
+                <g id="SystemMonitor">
+                    <rect x="1300" y="900" width="200" height="150" fill="#e0f2f1" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="1300" y="900" width="200" height="30" fill="#009688" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="1400" y="920" text-anchor="middle" fill="white" font-size="13" font-weight="bold">SystemMonitor</text>
+                    <line x1="1300" y1="930" x2="1500" y2="930" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="1310" y="950" font-size="10" class="class-box">- monitorId: string</text>
+                    <text x="1310" y="965" font-size="10" class="class-box">- metrics: Metric[]</text>
+                    <text x="1310" y="980" font-size="10" class="class-box">- healthStatus: Status</text>
+                    <line x1="1300" y1="990" x2="1500" y2="990" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="1310" y="1005" font-size="10" class="class-box">+ getSystemStatus()</text>
+                    <text x="1310" y="1020" font-size="10" class="class-box">+ collectMetrics()</text>
+                    <text x="1310" y="1035" font-size="10" class="class-box">+ checkHealth()</text>
+                </g>
+
+                <!-- ConfigurationManager -->
+                <g id="ConfigurationManager">
+                    <rect x="1050" y="1100" width="220" height="150" fill="#fff9c4" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="1050" y="1100" width="220" height="30" fill="#fbc02d" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="1160" y="1120" text-anchor="middle" fill="white" font-size="11" font-weight="bold">ConfigurationManager</text>
+                    <line x1="1050" y1="1130" x2="1270" y2="1130" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="1060" y="1150" font-size="10" class="class-box">- configId: string</text>
+                    <text x="1060" y="1165" font-size="10" class="class-box">- configurations: Map</text>
+                    <text x="1060" y="1180" font-size="10" class="class-box">- version: string</text>
+                    <line x1="1050" y1="1190" x2="1270" y2="1190" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="1060" y="1205" font-size="10" class="class-box">+ getConfig()</text>
+                    <text x="1060" y="1220" font-size="10" class="class-box">+ setConfig()</text>
+                    <text x="1060" y="1235" font-size="10" class="class-box">+ updateConfig()</text>
+                </g>
+
+                <!-- Aggregation: AnomalyDetector has DetectionRules -->
+                <path d="M 500 975 L 1050 975" stroke="#2c3e50" stroke-width="2" fill="none" marker-start="url(#aggregation)"/>
+                <text x="760" y="965" font-size="11" fill="#2c3e50">uses</text>
+                <text x="510" y="990" font-size="11" fill="#2c3e50">1</text>
+                <text x="1025" y="990" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- Association: SystemAdministrator configures DetectionRule -->
+                <path d="M 570 325 L 1150 900" stroke="#2c3e50" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#dependency)"/>
+                <text x="850" y="600" font-size="11" fill="#666">«manages»</text>
+
+                <!-- Association: DevOpsEngineer uses SystemMonitor -->
+                <path d="M 570 510 L 1300 975" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="920" y="730" font-size="11" fill="#2c3e50">monitors via</text>
+                <text x="580" y="525" font-size="11" fill="#2c3e50">1</text>
+                <text x="1270" y="990" font-size="11" fill="#2c3e50">1</text>
+
+                <!-- Aggregation: ConfigurationManager manages DetectionRules -->
+                <path d="M 1150 1100 L 1150 1050" stroke="#2c3e50" stroke-width="2" fill="none" marker-start="url(#aggregation)"/>
+                <text x="1160" y="1075" font-size="11" fill="#2c3e50">manages</text>
+                <text x="1160" y="1095" font-size="11" fill="#2c3e50">1</text>
+                <text x="1160" y="1055" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- ML CLASSES (Bottom Right) -->
+                <!-- MLModel -->
+                <g id="MLModel">
+                    <rect x="1300" y="1300" width="200" height="150" fill="#f3e5f5" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="1300" y="1300" width="200" height="30" fill="#9c27b0" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="1400" y="1320" text-anchor="middle" fill="white" font-size="14" font-weight="bold">MLModel</text>
+                    <line x1="1300" y1="1330" x2="1500" y2="1330" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="1310" y="1350" font-size="10" class="class-box">- modelId: string</text>
+                    <text x="1310" y="1365" font-size="10" class="class-box">- modelType: string</text>
+                    <text x="1310" y="1380" font-size="10" class="class-box">- accuracy: number</text>
+                    <text x="1310" y="1395" font-size="10" class="class-box">- version: string</text>
+                    <line x1="1300" y1="1405" x2="1500" y2="1405" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="1310" y="1420" font-size="10" class="class-box">+ predict()</text>
+                    <text x="1310" y="1435" font-size="10" class="class-box">+ train()</text>
+                </g>
+
+                <!-- MachineLearningEngine -->
+                <g id="MachineLearningEngine">
+                    <rect x="1050" y="1300" width="220" height="150" fill="#e8f5e9" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="1050" y="1300" width="220" height="30" fill="#4caf50" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="1160" y="1320" text-anchor="middle" fill="white" font-size="11" font-weight="bold">MachineLearningEngine</text>
+                    <line x1="1050" y1="1330" x2="1270" y2="1330" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="1060" y="1350" font-size="10" class="class-box">- engineId: string</text>
+                    <text x="1060" y="1365" font-size="10" class="class-box">- models: MLModel[]</text>
+                    <text x="1060" y="1380" font-size="10" class="class-box">- trainingQueue: Job[]</text>
+                    <line x1="1050" y1="1390" x2="1270" y2="1390" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="1060" y="1405" font-size="10" class="class-box">+ generateDetectionRules()</text>
+                    <text x="1060" y="1420" font-size="10" class="class-box">+ improveAccuracy()</text>
+                    <text x="1060" y="1435" font-size="10" class="class-box">+ retrainModel()</text>
+                </g>
+
+                <!-- Composition: MachineLearningEngine contains MLModels -->
+                <path d="M 1270 1375 L 1300 1375" stroke="#2c3e50" stroke-width="2" fill="none" marker-start="url(#composition)"/>
+                <text x="1275" y="1365" font-size="11" fill="#2c3e50">1</text>
+                <text x="1305" y="1390" font-size="11" fill="#2c3e50">1..*</text>
+
+                <!-- Association: AnomalyDetector uses MLModel -->
+                <path d="M 500 1025 L 1400 1300" stroke="#2c3e50" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#dependency)"/>
+                <text x="930" y="1150" font-size="11" fill="#666">«uses»</text>
+
+                <!-- Association: MachineLearningEngine generates DetectionRules -->
+                <path d="M 1150 1300 L 1150 1050" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="1160" y="1175" font-size="11" fill="#2c3e50">generates</text>
+                <text x="1160" y="1295" font-size="11" fill="#2c3e50">1</text>
+                <text x="1160" y="1055" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- REPORT CLASSES (Bottom Left) -->
+                <!-- Report -->
+                <g id="Report">
+                    <rect x="50" y="1400" width="200" height="140" fill="#ffebee" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="50" y="1400" width="200" height="30" fill="#f44336" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="150" y="1420" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Report</text>
+                    <line x1="50" y1="1430" x2="250" y2="1430" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="60" y="1450" font-size="10" class="class-box">- reportId: string</text>
+                    <text x="60" y="1465" font-size="10" class="class-box">- title: string</text>
+                    <text x="60" y="1480" font-size="10" class="class-box">- reportType: Type</text>
+                    <text x="60" y="1495" font-size="10" class="class-box">- data: Object</text>
+                    <line x1="50" y1="1505" x2="250" y2="1505" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="60" y="1520" font-size="10" class="class-box">+ generate()</text>
+                    <text x="60" y="1535" font-size="10" class="class-box">+ export()</text>
+                </g>
+
+                <!-- ReportGenerator -->
+                <g id="ReportGenerator">
+                    <rect x="300" y="1400" width="200" height="140" fill="#e3f2fd" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="300" y="1400" width="200" height="30" fill="#2196f3" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="400" y="1420" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ReportGenerator</text>
+                    <line x1="300" y1="1430" x2="500" y2="1430" stroke="#2c3e50" stroke-width="1"/>
+                    
+                    <text x="310" y="1450" font-size="10" class="class-box">- generatorId: string</text>
+                    <text x="310" y="1465" font-size="10" class="class-box">- templates: Template[]</text>
+                    <text x="310" y="1480" font-size="10" class="class-box">- scheduledReports: []</text>
+                    <line x1="300" y1="1490" x2="500" y2="1490" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="310" y="1505" font-size="10" class="class-box">+ createReport()</text>
+                    <text x="310" y="1520" font-size="10" class="class-box">+ scheduleReport()</text>
+                    <text x="310" y="1535" font-size="10" class="class-box">+ exportToPDF()</text>
+                </g>
+
+                <!-- Composition: ReportGenerator creates Reports -->
+                <path d="M 300 1470 L 250 1470" stroke="#2c3e50" stroke-width="2" fill="none" marker-start="url(#composition)"/>
+                <text x="265" y="1460" font-size="11" fill="#2c3e50">1</text>
+                <text x="255" y="1485" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- Association: SecurityAnalyst generates Reports -->
+                <path d="M 460 210 L 400 1400" stroke="#2c3e50" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#dependency)"/>
+                <text x="425" y="800" font-size="11" fill="#666">«generates»</text>
+
+                <!-- Association: ReportGenerator uses Incident data -->
+                <path d="M 300 1400 L 150 1060" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="220" y="1230" font-size="11" fill="#2c3e50">uses data from</text>
+                <text x="310" y="1395" font-size="11" fill="#2c3e50">1</text>
+                <text x="160" y="1065" font-size="11" fill="#2c3e50">*</text>
+
+                <!-- Association: SecurityAnalyst has assigned Incidents -->
+                <path d="M 460 210 L 150 900" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="290" y="550" font-size="11" fill="#2c3e50">assigned</text>
+                <text x="470" y="225" font-size="11" fill="#2c3e50">1</text>
+                <text x="160" y="895" font-size="11" fill="#2c3e50">0..*</text>
+
+                <!-- Additional key relationships -->
+                <!-- LogCollector to LogPreprocessor -->
+                <path d="M 500 725 L 550 725" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="515" y="715" font-size="11" fill="#2c3e50">sends to</text>
+
+                <!-- LogPreprocessor to LogAnalyzer -->
+                <path d="M 750 725 L 800 725" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="765" y="715" font-size="11" fill="#2c3e50">feeds</text>
+
+                <!-- LogAnalyzer to AnomalyDetector -->
+                <path d="M 900 800 L 400 900" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="640" y="845" font-size="11" fill="#2c3e50">sends results</text>
+
+                <!-- IncidentClassifier to AlertGenerator -->
+                <path d="M 650 1050 L 400 1150" stroke="#2c3e50" stroke-width="2" fill="none" marker-end="url(#association)"/>
+                <text x="510" y="1095" font-size="11" fill="#2c3e50">triggers</text>
+                
+                <!-- Legend for relationships -->
+                <g id="legend" transform="translate(1550, 50)">
+                    <rect x="0" y="0" width="320" height="450" fill="#f8f9fa" stroke="#2c3e50" stroke-width="2" rx="5"/>
+                    <text x="160" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">Relationship Legend</text>
+                    
+                    <!-- Inheritance -->
+                    <line x1="20" y1="60" x2="100" y2="60" stroke="#2c3e50" stroke-width="2" marker-end="url(#inheritance)"/>
+                    <text x="110" y="65" font-size="12" fill="#2c3e50">Inheritance (IS-A)</text>
+                    
+                    <!-- Association -->
+                    <line x1="20" y1="100" x2="100" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#association)"/>
+                    <text x="110" y="105" font-size="12" fill="#2c3e50">Association</text>
+                    
+                    <!-- Aggregation -->
+                    <line x1="20" y1="140" x2="100" y2="140" stroke="#2c3e50" stroke-width="2" marker-start="url(#aggregation)"/>
+                    <text x="110" y="145" font-size="12" fill="#2c3e50">Aggregation (HAS-A)</text>
+                    <text x="110" y="160" font-size="10" fill="#666" font-style="italic">weak ownership</text>
+                    
+                    <!-- Composition -->
+                    <line x1="20" y1="190" x2="100" y2="190" stroke="#2c3e50" stroke-width="2" marker-start="url(#composition)"/>
+                    <text x="110" y="195" font-size="12" fill="#2c3e50">Composition (PART-OF)</text>
+                    <text x="110" y="210" font-size="10" fill="#666" font-style="italic">strong ownership</text>
+                    
+                    <!-- Dependency -->
+                    <line x1="20" y1="240" x2="100" y2="240" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#dependency)"/>
+                    <text x="110" y="245" font-size="12" fill="#2c3e50">Dependency (USES)</text>
+                    
+                    <!-- Cardinality -->
+                    <rect x="10" y="270" width="300" height="160" fill="white" stroke="#3498db" stroke-width="1" rx="3"/>
+                    <text x="160" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="#3498db">Cardinality Notations</text>
+                    
+                    <text x="20" y="315" font-size="11" fill="#2c3e50" font-weight="bold">1</text>
+                    <text x="40" y="315" font-size="11" fill="#2c3e50">- Exactly one</text>
+                    
+                    <text x="20" y="340" font-size="11" fill="#2c3e50" font-weight="bold">0..1</text>
+                    <text x="50" y="340" font-size="11" fill="#2c3e50">- Zero or one</text>
+                    
+                    <text x="20" y="365" font-size="11" fill="#2c3e50" font-weight="bold">*</text>
+                    <text x="40" y="365" font-size="11" fill="#2c3e50">- Zero or more</text>
+                    
+                    <text x="20" y="390" font-size="11" fill="#2c3e50" font-weight="bold">1..*</text>
+                    <text x="50" y="390" font-size="11" fill="#2c3e50">- One or more</text>
+                    
+                    <text x="20" y="415" font-size="11" fill="#2c3e50" font-weight="bold">n</text>
+                    <text x="40" y="415" font-size="11" fill="#2c3e50">- Specific number</text>
+                </g>
+            </svg>
+        </div>
+
+        <h2>Relationship Details</h2>
+        <table class="relationship-table">
+            <thead>
+                <tr>
+                    <th>Relationship Type</th>
+                    <th>From Class</th>
+                    <th>To Class</th>
+                    <th>Cardinality</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Inheritance</strong></td>
+                    <td>SecurityAnalyst</td>
+                    <td>User</td>
+                    <td>-</td>
+                    <td>SecurityAnalyst IS-A User (inherits attributes and methods)</td>
+                </tr>
+                <tr>
+                    <td><strong>Inheritance</strong></td>
+                    <td>SystemAdministrator</td>
+                    <td>User</td>
+                    <td>-</td>
+                    <td>SystemAdministrator IS-A User</td>
+                </tr>
+                <tr>
+                    <td><strong>Inheritance</strong></td>
+                    <td>DevOpsEngineer</td>
+                    <td>User</td>
+                    <td>-</td>
+                    <td>DevOpsEngineer IS-A User</td>
+                </tr>
+                <tr>
+                    <td><strong>Composition</strong></td>
+                    <td>LogCollector</td>
+                    <td>Log</td>
+                    <td>1 → *</td>
+                    <td>LogCollector creates and owns Logs (logs cannot exist without collector)</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>LogPreprocessor</td>
+                    <td>Log</td>
+                    <td>1 → *</td>
+                    <td>LogPreprocessor processes multiple Logs</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>LogAnalyzer</td>
+                    <td>Log</td>
+                    <td>1 → *</td>
+                    <td>LogAnalyzer analyzes multiple Logs</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>LogCollector</td>
+                    <td>LogPreprocessor</td>
+                    <td>1 → 1</td>
+                    <td>LogCollector sends logs to LogPreprocessor</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>LogPreprocessor</td>
+                    <td>LogAnalyzer</td>
+                    <td>1 → 1</td>
+                    <td>LogPreprocessor feeds processed logs to LogAnalyzer</td>
+                </tr>
+                <tr>
+                    <td><strong>Dependency</strong></td>
+                    <td>AnomalyDetector</td>
+                    <td>LogAnalyzer</td>
+                    <td>1 → 1</td>
+                    <td>AnomalyDetector uses analysis results from LogAnalyzer</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>AnomalyDetector</td>
+                    <td>Incident</td>
+                    <td>1 → *</td>
+                    <td>AnomalyDetector detects and creates multiple Incidents</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>IncidentClassifier</td>
+                    <td>Incident</td>
+                    <td>1 → *</td>
+                    <td>IncidentClassifier classifies multiple Incidents</td>
+                </tr>
+                <tr>
+                    <td><strong>Aggregation</strong></td>
+                    <td>AnomalyDetector</td>
+                    <td>DetectionRule</td>
+                    <td>1 → *</td>
+                    <td>AnomalyDetector uses DetectionRules (rules can exist independently)</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>Incident</td>
+                    <td>Alert</td>
+                    <td>1 → 0..*</td>
+                    <td>An Incident triggers zero or more Alerts</td>
+                </tr>
+                <tr>
+                    <td><strong>Composition</strong></td>
+                    <td>AlertGenerator</td>
+                    <td>Alert</td>
+                    <td>1 → *</td>
+                    <td>AlertGenerator creates and owns Alerts</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>AlertGenerator</td>
+                    <td>Incident</td>
+                    <td>1 → *</td>
+                    <td>AlertGenerator generates alerts from Incidents</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>AutoResponseEngine</td>
+                    <td>Alert</td>
+                    <td>1 → 1</td>
+                    <td>AutoResponseEngine responds to critical Alerts</td>
+                </tr>
+                <tr>
+                    <td><strong>Dependency</strong></td>
+                    <td>SystemAdministrator</td>
+                    <td>DetectionRule</td>
+                    <td>1 → *</td>
+                    <td>SystemAdministrator manages DetectionRules</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>DevOpsEngineer</td>
+                    <td>SystemMonitor</td>
+                    <td>1 → 1</td>
+                    <td>DevOpsEngineer uses SystemMonitor for monitoring</td>
+                </tr>
+                <tr>
+                    <td><strong>Aggregation</strong></td>
+                    <td>ConfigurationManager</td>
+                    <td>DetectionRule</td>
+                    <td>1 → *</td>
+                    <td>ConfigurationManager manages DetectionRules configuration</td>
+                </tr>
+                <tr>
+                    <td><strong>Composition</strong></td>
+                    <td>MachineLearningEngine</td>
+                    <td>MLModel</td>
+                    <td>1 → 1..*</td>
+                    <td>MachineLearningEngine contains and owns MLModels</td>
+                </tr>
+                <tr>
+                    <td><strong>Dependency</strong></td>
+                    <td>AnomalyDetector</td>
+                    <td>MLModel</td>
+                    <td>1 → 1</td>
+                    <td>AnomalyDetector uses MLModel for predictions</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>MachineLearningEngine</td>
+                    <td>DetectionRule</td>
+                    <td>1 → *</td>
+                    <td>MachineLearningEngine generates new DetectionRules</td>
+                </tr>
+                <tr>
+                    <td><strong>Composition</strong></td>
+                    <td>ReportGenerator</td>
+                    <td>Report</td>
+                    <td>1 → *</td>
+                    <td>ReportGenerator creates and owns Reports</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>ReportGenerator</td>
+                    <td>Incident</td>
+                    <td>1 → *</td>
+                    <td>ReportGenerator uses Incident data for reports</td>
+                </tr>
+                <tr>
+                    <td><strong>Dependency</strong></td>
+                    <td>SecurityAnalyst</td>
+                    <td>ReportGenerator</td>
+                    <td>1 → 1</td>
+                    <td>SecurityAnalyst uses ReportGenerator to create reports</td>
+                </tr>
+                <tr>
+                    <td><strong>Association</strong></td>
+                    <td>SecurityAnalyst</td>
+                    <td>Incident</td>
+                    <td>1 → 0..*</td>
+                    <td>SecurityAnalyst is assigned zero or more Incidents</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Key Relationship Patterns</h2>
+        
+        <div class="legend">
+            <h3>📊 Inheritance Hierarchy</h3>
+            <p><strong>User Base Class → Specialized User Types</strong></p>
+            <ul>
+                <li>User is the abstract base class with common authentication and authorization</li>
+                <li>SecurityAnalyst, SystemAdministrator, and DevOpsEngineer inherit from User</li>
+                <li>Each subclass adds specialized attributes and methods for their role</li>
+            </ul>
+        </div>
+
+        <div class="legend">
+            <h3>🔄 Data Processing Pipeline (Association Chain)</h3>
+            <p><strong>Log Flow: Collection → Preprocessing → Analysis → Detection</strong></p>
+            <ol>
+                <li>LogCollector <strong>creates</strong> (composition) Log instances</li>
+                <li>LogPreprocessor <strong>processes</strong> (association) Logs</li>
+                <li>LogAnalyzer <strong>analyzes</strong> (association) processed Logs</li>
+                <li>AnomalyDetector <strong>uses</strong> (dependency) analysis results to detect anomalies</li>
+            </ol>
+        </div>
+
+        <div class="legend">
+            <h3>⚠️ Incident Management Flow</h3>
+            <p><strong>Detection → Classification → Alert → Response</strong></p>
+            <ol>
+                <li>AnomalyDetector <strong>creates</strong> Incidents (1 → *)</li>
+                <li>IncidentClassifier <strong>classifies</strong> Incidents (1 → *)</li>
+                <li>Incident <strong>triggers</strong> Alerts (1 → 0..*)</li>
+                <li>AlertGenerator <strong>generates</strong> (composition) Alerts from Incidents</li>
+                <li>AutoResponseEngine <strong>responds to</strong> critical Alerts (1 → 1)</li>
+            </ol>
+        </div>
+
+        <div class="legend">
+            <h3>🤖 Machine Learning Integration</h3>
+            <ul>
+                <li><strong>Composition:</strong> MachineLearningEngine contains MLModels (1 → 1..*)</li>
+                <li><strong>Dependency:</strong> AnomalyDetector uses MLModel for predictions</li>
+                <li><strong>Association:</strong> MachineLearningEngine generates DetectionRules (1 → *)</li>
+                <li><strong>Aggregation:</strong> AnomalyDetector has DetectionRules (1 → *)</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <h3>💡 Design Principles Applied</h3>
+            <ul>
+                <li><strong>Single Responsibility:</strong> Each class has one clear purpose</li>
+                <li><strong>Open/Closed:</strong> User hierarchy allows extension without modification</li>
+                <li><strong>Liskov Substitution:</strong> All User subclasses can substitute the base User class</li>
+                <li><strong>Dependency Inversion:</strong> High-level modules (e.g., AnomalyDetector) depend on abstractions (e.g., MLModel interface)</li>
+                <li><strong>Composition over Inheritance:</strong> Used composition for flexible relationships (e.g., AlertGenerator-Alert)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
