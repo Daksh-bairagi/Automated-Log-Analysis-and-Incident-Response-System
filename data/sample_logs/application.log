@@ -1,3 +1,0 @@
-2026-01-18 10:12:45 INFO AuthService User login successful for user_id=1023
-2026-01-18 10:13:01 WARNING AuthService Multiple failed login attempts detected
-2026-01-18 10:13:15 ERROR AuthService Account locked due to suspicious activity
