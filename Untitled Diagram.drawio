@@ -1,0 +1,355 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0" version="29.4.0">
+  <diagram name="Log Analysis System UML" id="Fnw7RbQomrx1tIIMTECo">
+    <mxGraphModel dx="2406" dy="2008" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-1" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;User&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- userId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- username: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- email: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- passwordHash: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- role: UserRole&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ login(): AuthToken&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ logout(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ hasPermission(): bool&lt;/p&gt;" vertex="1">
+          <mxGeometry height="180" width="220" x="-380" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-2" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="KQ08SCT4PUFfA4RloHAr-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="1070" />
+              <mxPoint x="600" y="1070" />
+              <mxPoint x="600" y="2225" />
+            </Array>
+            <mxPoint x="1940" y="2260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-3" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SecurityAnalyst&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- department: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- clearanceLevel: number&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- assignedIncidents: Incident[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ viewIncidentReports()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ analyzeLog()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generateReport()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ escalateIncident()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="160" width="220" x="540" y="-290" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-4" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e3f2fd;strokeColor=#2196f3;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SystemAdministrator&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- adminLevel: number&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- managedSystems: string[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ configureDetectionRules()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ manageUserAccess()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ updateSystemSettings()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ createUser()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="500" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-5" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#f3e5f5;strokeColor=#9c27b0;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;DevOpsEngineer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- teamName: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- monitoredServices: string[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ monitorSystemStatus()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ viewPerformanceMetrics()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ configureAlerts()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ deployUpdate()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="220" x="230" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-6" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#fce4ec;strokeColor=#e91e63;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Log&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- logId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- timestamp: Date&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- source: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- logLevel: LogLevel&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- message: string&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getId(): string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ markAsProcessed()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="160" width="200" x="930" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-7" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e0f2f1;strokeColor=#009688;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;LogCollector&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- collectorId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- sources: LogSource[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- isActive: boolean&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ collectLogs(): Log[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ startCollection()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ stopCollection()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="180" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-8" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;LogPreprocessor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- preprocessorId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- filters: Filter[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- transformations: []&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ preprocessLog()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ cleanData()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ normalizeFormat()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="610" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-9" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e1f5fe;strokeColor=#03a9f4;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;LogAnalyzer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- analyzerId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- analysisRules: Rule[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- patterns: Pattern[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ analyzeLog()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ detectPatterns()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ correlateEvents()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="995" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-10" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#ffebee;strokeColor=#f44336;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Incident&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- incidentId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- title: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- severity: SeverityLevel&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- status: IncidentStatus&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- relatedLogs: string[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ updateStatus()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ escalate()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="160" width="200" x="-550" y="745" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-11" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#f3e5f5;strokeColor=#9c27b0;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AnomalyDetector&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- detectorId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- detectionRules: Rule[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- mlModel: MLModel&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- threshold: number&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ detectAnomalies()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ applyMLModel()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="300" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-12" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;IncidentClassifier&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- classifierId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- categories: Category[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- classificationRules: []&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ classifyIncident()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ determineSeverity()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ assignPriority()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="850" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-13" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#fff3e0;strokeColor=#ff9800;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Alert&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- alertId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- incidentId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- severity: SeverityLevel&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- recipients: string[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ send(): boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ acknowledge()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="-15" y="1310" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-14" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e1f5fe;strokeColor=#03a9f4;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AlertGenerator&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- generatorId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- alertRules: Rule[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- channels: Channel[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generateAlert()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ sendAlert()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="360" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-15" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;DetectionRule&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- ruleId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- ruleName: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- condition: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- threshold: number&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ evaluate(): boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ activate()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="1500" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-16" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e0f2f1;strokeColor=#009688;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SystemMonitor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- monitorId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- metrics: Metric[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- healthStatus: Status&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getSystemStatus()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ collectMetrics()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ checkHealth()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="-540" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-17" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ConfigurationManager&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- configId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- configurations: Map&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- version: string&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getConfig()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ setConfig()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ updateConfig()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="1110" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-18" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#f3e5f5;strokeColor=#9c27b0;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MLModel&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- modelId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- modelType: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- accuracy: number&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- version: string&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ predict()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ train()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="1440" y="1360" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-19" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e8f5e9;strokeColor=#4caf50;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MachineLearningEngine&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- engineId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- models: MLModel[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- trainingQueue: Job[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generateDetectionRules()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ improveAccuracy()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ retrainModel()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="1110" y="1360" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-20" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#ffebee;strokeColor=#f44336;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Report&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- reportId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- title: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- reportType: Type&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- data: Object&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generate()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ export()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="630" y="2190" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-21" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#e3f2fd;strokeColor=#2196f3;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ReportGenerator&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- generatorId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- templates: Template[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- scheduledReports: []&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ createReport()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ scheduleReport()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ exportToPDF()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="880" y="1820" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-22" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-3" style="endArrow=block;endSize=16;endFill=0;html=1;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-350" y="-210" />
+            </Array>
+            <mxPoint x="-130" y="-270" as="sourcePoint" />
+            <mxPoint x="-350" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-23" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-4" style="endArrow=block;endSize=16;endFill=0;html=1;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=elbowEdgeStyle;elbow=vertical;" target="KQ08SCT4PUFfA4RloHAr-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-24" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-5" style="endArrow=block;endSize=16;endFill=0;html=1;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-25" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-6" style="endArrow=none;html=1;strokeWidth=2;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.991;entryY=0.151;entryDx=0;entryDy=0;startArrow=diamond;startFill=1;startSize=16;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-7" value="1">
+          <mxGeometry relative="1" x="-0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="920" y="590" />
+              <mxPoint x="520" y="590" />
+              <mxPoint x="520" y="733" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-26" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="*" vertex="1">
+          <mxGeometry height="30" width="30" x="385" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-27" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-13" style="endArrow=none;html=1;strokeWidth=2;exitX=0.992;exitY=0.346;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamond;startFill=1;startSize=16;edgeStyle=orthogonalEdgeStyle;exitPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-14" value="1">
+          <mxGeometry relative="1" x="-0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-28" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="*" vertex="1">
+          <mxGeometry height="30" width="30" x="315" y="1270" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-29" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-19" style="endArrow=none;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamond;startFill=1;startSize=16;" target="KQ08SCT4PUFfA4RloHAr-18" value="1">
+          <mxGeometry relative="1" x="-0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-30" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="1..*" vertex="1">
+          <mxGeometry height="30" width="40" x="1330" y="1420" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-31" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-20" style="endArrow=none;html=1;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=diamond;startFill=1;startSize=16;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-21" value="1">
+          <mxGeometry relative="1" x="-0.2" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-32" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="*" vertex="1">
+          <mxGeometry height="30" width="30" x="200" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-33" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-8" style="endArrow=classic;html=1;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-6" value="processes">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-34" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="1" vertex="1">
+          <mxGeometry height="30" width="30" x="715" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-35" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="*" vertex="1">
+          <mxGeometry height="30" width="30" x="200" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-36" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-9" style="endArrow=classic;html=1;strokeWidth=2;entryX=0.893;entryY=1.007;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.574;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-6" value="analyzes">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="1120" y="690" as="sourcePoint" />
+            <mxPoint x="1110" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-37" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-7" style="endArrow=classic;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-8" value="sends to">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-38" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-8" style="endArrow=classic;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.588;entryDx=0;entryDy=0;entryPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-9" value="feeds">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-39" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-9" style="endArrow=classic;html=1;strokeWidth=2;exitX=0;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" value="sends results">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="995" y="940" />
+              <mxPoint x="500" y="940" />
+            </Array>
+            <mxPoint x="500" y="940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-40" connectable="0" parent="KQ08SCT4PUFfA4RloHAr-39" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Text" vertex="1">
+          <mxGeometry relative="1" x="0.7673" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-41" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-11" style="endArrow=classic;html=1;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-10" value="detects">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="90" y="1005" />
+              <mxPoint x="90" y="825" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-42" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="1" vertex="1">
+          <mxGeometry height="30" width="30" x="330" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-43" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="*" vertex="1">
+          <mxGeometry height="30" width="30" x="315" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-44" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2;entryX=1;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-10" value="classifies">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="850" y="1120" />
+              <mxPoint x="-40" y="1120" />
+              <mxPoint x="-40" y="865" />
+            </Array>
+            <mxPoint x="850" y="1120" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-45" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-10" style="endArrow=classic;html=1;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;entryX=0.575;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-13" value="triggers">
+          <mxGeometry relative="1" x="0.7277" y="-40" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="-450" y="1230" />
+              <mxPoint x="100" y="1230" />
+            </Array>
+            <mxPoint x="130" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-46" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="1" vertex="1">
+          <mxGeometry height="30" width="30" x="185" y="1125" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-47" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-14" style="endArrow=classic;html=1;strokeWidth=2;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-10" value="from">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="360" y="1140" />
+              <mxPoint x="-500" y="1140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-48" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-12" style="endArrow=classic;html=1;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-14" value="triggers">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-49" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;entryX=1.002;entryY=0.825;entryDx=0;entryDy=0;entryPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-13" value="responds to">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="675" y="1434" />
+            </Array>
+            <mxPoint x="675" y="1350" as="sourcePoint" />
+            <mxPoint x="250" y="1431" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-50" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-5" style="endArrow=classic;html=1;strokeWidth=2;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-16" value="monitors via">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="625" y="595" as="sourcePoint" />
+            <mxPoint x="1330" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-51" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-19" style="endArrow=classic;html=1;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-15" value="generates">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1220" y="1330" />
+              <mxPoint x="1600" y="1330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-52" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-21" style="endArrow=classic;html=1;strokeWidth=2;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-10" value="uses data from">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="630" y="1580" />
+              <mxPoint x="-400" y="1580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-53" edge="1" parent="1" style="endArrow=classic;html=1;strokeWidth=2;entryX=1;entryY=0.25;entryDx=0;entryDy=0;edgeStyle=elbowEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-10" value="assigned">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="530" y="-160" as="sourcePoint" />
+            <mxPoint x="-490.14" y="685.14" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-54" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="1" vertex="1">
+          <mxGeometry height="30" width="30" x="450" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-56" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-11" style="endArrow=none;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=0;startSize=16;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-15" value="uses">
+          <mxGeometry relative="1" x="-0.1681" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="500" y="990" />
+              <mxPoint x="1500" y="990" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-57" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="1" vertex="1">
+          <mxGeometry height="30" width="30" x="565" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-58" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="*" vertex="1">
+          <mxGeometry height="30" width="30" x="1080" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-59" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-17" style="endArrow=none;html=1;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.9;entryY=1;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=0;startSize=16;edgeStyle=orthogonalEdgeStyle;entryPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-15" value="manages">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-60" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-11" style="endArrow=classic;html=1;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;edgeStyle=orthogonalEdgeStyle;" target="KQ08SCT4PUFfA4RloHAr-9" value="«uses»">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-61" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-4" style="endArrow=classic;html=1;strokeWidth=2;exitX=0.824;exitY=-0.012;exitDx=0;exitDy=0;dashed=1;edgeStyle=orthogonalEdgeStyle;entryX=-0.004;entryY=0.039;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-15" value="«manages»">
+          <mxGeometry relative="1" x="0.0009" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="681" y="-5" />
+              <mxPoint x="1449" y="-5" />
+              <mxPoint x="1449" y="746" />
+            </Array>
+            <mxPoint x="670" y="465" as="sourcePoint" />
+            <mxPoint x="1479.6" y="743.8000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-62" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-11" style="endArrow=classic;html=1;strokeWidth=2;dashed=1;edgeStyle=orthogonalEdgeStyle;exitX=0.996;exitY=0.202;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.196;entryY=0.995;entryDx=0;entryDy=0;entryPerimeter=0;" target="KQ08SCT4PUFfA4RloHAr-18" value="«uses»">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="499" y="1095" />
+              <mxPoint x="500" y="1095" />
+              <mxPoint x="500" y="955" />
+              <mxPoint x="1090" y="955" />
+              <mxPoint x="1090" y="1615" />
+              <mxPoint x="1479" y="1615" />
+            </Array>
+            <mxPoint x="550" y="1095" as="sourcePoint" />
+            <mxPoint x="1530" y="1520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-63" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-65" style="endArrow=classic;html=1;strokeWidth=2;dashed=1;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="«generates»">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="910" y="1300" />
+              <mxPoint x="910" y="1564" />
+              <mxPoint x="960" y="1564" />
+              <mxPoint x="960" y="1759" />
+            </Array>
+            <mxPoint x="765" y="-208.75" as="sourcePoint" />
+            <mxPoint x="960" y="1800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-64" edge="1" parent="1" source="KQ08SCT4PUFfA4RloHAr-3" style="endArrow=classic;html=1;strokeWidth=2;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="KQ08SCT4PUFfA4RloHAr-20" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1900" y="-210" />
+              <mxPoint x="1900" y="2260" />
+            </Array>
+            <mxPoint x="1850" y="-240" as="sourcePoint" />
+            <mxPoint x="1920" y="2265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-65" parent="1" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#fce4ec;strokeColor=#e91e63;strokeWidth=2;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AutoResponseEngine&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- engineId: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- responsePlaybooks: []&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- executedActions: Action[]&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ executeResponse()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ isolateSystem()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="220" x="680" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="KQ08SCT4PUFfA4RloHAr-66" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" value="0..*" vertex="1">
+          <mxGeometry height="30" width="40" x="250" y="970" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
