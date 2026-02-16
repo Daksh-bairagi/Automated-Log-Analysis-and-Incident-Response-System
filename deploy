@@ -1,0 +1,38 @@
+2️⃣ Deployment Strategy (Step-wise)
+Step 1: Server Setup
+
+Install Linux (Ubuntu Server)
+
+Install Java / Python runtime (based on implementation)
+
+Install MySQL / PostgreSQL
+
+Install Apache/Nginx for frontend
+
+Step 2: Database Configuration
+
+Create database for:
+
+Logs
+
+Users
+
+Incident Reports
+
+Configure DB credentials securely
+
+Step 3: Backend Deployment
+
+Deploy backend application (Spring Boot / Flask / Node.js)
+
+Expose REST APIs
+
+Configure API endpoints for:
+
+Upload Logs
+
+Analyze Logs
+
+Generate Alerts
+
+Trigger Response
