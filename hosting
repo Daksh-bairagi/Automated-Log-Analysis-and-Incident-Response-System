@@ -1,0 +1,22 @@
+1️ Host Site (Target Server / Cloud)
+
+Component-wise Hosting Plan:
+
+Log Collection Module → Hosted on application server (Cloud VM – AWS EC2 / Azure VM / On-Prem Linux Server)
+
+Log Storage Database → MySQL / PostgreSQL hosted on cloud DB server
+
+Log Analysis Engine (Rule Engine / ML Engine) → Hosted on backend server (same VM or separate microservice container)
+
+Incident Response Module (Alert Generator + Auto Action) → Backend server
+
+Web Dashboard (Frontend UI) → Hosted on web server (Nginx / Apache)
+
+API Layer (REST APIs) → Hosted on backend server
+
+👉 Deployment Platform:
+
+Cloud-based (AWS / Azure / GCP)
+OR
+
+On-premise Linux server (if lab project)
