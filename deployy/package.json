@@ -1,0 +1,17 @@
+﻿class SeverityClassifier {
+  static classify(entry) {
+    const level = entry.level.toUpperCase();
+
+    if (level === "ERROR") {
+      return "HIGH";
+    }
+
+    if (level === "WARNING") {
+      return "MEDIUM";
+    }
+
+    return "LOW";
+  }
+}
+
+module.exports = SeverityClassifier;
