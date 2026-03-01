@@ -1,0 +1,87 @@
+1. Host Site (Target Server / Cloud)
+
+We are planning to host the application components as follows:
+
+Log Collection Agents
+
+Installed on monitored servers (client machines) where logs are generated.
+
+These agents will send logs to the central system.
+
+Log Processing & Analysis Engine
+
+Hosted on a cloud server (e.g., AWS EC2 / Google Cloud VM).
+
+Responsible for receiving, parsing, and analyzing logs.
+
+Incident Response Module
+
+Hosted on the same cloud server as the analysis engine.
+
+Executes automated response actions such as alerts or scripts.
+
+Database
+
+Hosted on a managed cloud database service (e.g., AWS RDS / Cloud SQL).
+
+Stores logs metadata, detected incidents, and response history.
+
+Dashboard / User Interface
+
+Hosted on a cloud web server.
+
+Provides visualization of logs, alerts, and incidents to users.
+
+2. Deployment Strategy (Planned Steps)
+
+The planned deployment strategy is as follows:
+
+All backend components will be deployed on a central cloud server to simplify management.
+
+Each major component (log analysis, incident response, database, dashboard) will be logically separated as independent services.
+
+APIs will be used for communication:
+
+Log agents → Log analysis engine
+
+Log analysis engine → Incident response module
+
+Backend services → Dashboard
+
+Configuration files will define:
+
+Log sources
+
+Alert thresholds
+
+Response rules
+
+The system will be designed to support scalability, so components can later be containerized or moved to separate servers if required.
+
+3. Security Measures (Optional)
+
+The following security mechanisms are planned:
+
+Authentication & Authorization
+
+Only authorized users can access the dashboard.
+
+Role-based access for administrators and normal users.
+
+Secure Communication
+
+APIs will use encrypted communication (HTTPS).
+
+Secure credentials for database access.
+
+Network Security
+
+Firewalls will restrict access to internal services.
+
+Only required ports will be exposed.
+
+Log Integrity
+
+Logs will be protected from unauthorized modification.
+
+Access to raw logs will be limited to administrators.
