@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "test": "node test/run-all.cjs",
+    "test:audit": "node test/generate-component-audit.cjs",
+    "test:server:unit": "node test/run-server-unit.cjs",
+    "test:server:integration": "node test/run-server-integration.cjs",
+    "test:client": "node test/run-client-verification.cjs"
+  },
+  "dependencies": {
+    "mongoose": "^9.4.1"
+  }
+}

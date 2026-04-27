@@ -1,0 +1,1 @@
+Error connecting to MongoDB: Command listCollections requires authentication

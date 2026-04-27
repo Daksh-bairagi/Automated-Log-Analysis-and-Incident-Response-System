@@ -1,0 +1,162 @@
+================================================================================
+  FEATURE SPACE — DistilBERT Log Severity Classifier
+  Project: Log Analyzer (p - Copy)
+  Generated: 2026-04-14
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 1. RAW INPUT COLUMNS (from training_data.csv)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Column       Type      Example                              Role
+  ─────────    ──────    ───────────────────────────────      ─────────────────
+  message      string    "disk full on /dev/sda1"            PRIMARY FEATURE
+  level        string    "ERROR" / "WARN" / "INFO" / "DEBUG" SUPPORTING FEATURE
+  source       string    "auth-service"                      NOT USED (excluded)
+  severity     string    "LOW" / "MEDIUM" / "HIGH" /         TARGET LABEL
+                         "CRITICAL"
+
+  NOTE: Only `message` and `level` are used as model input.
+        `source` is excluded to avoid overfitting to service names.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 2. CONSTRUCTED INPUT TEXT (fed to DistilBERT)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Format:  "{LEVEL}: {message}"
+
+  Examples:
+    "ERROR: segfault in main process — core dumped"
+    "WARN: memory usage at 87% — approaching limit"
+    "INFO: user login successful from 192.168.1.1"
+    "DEBUG: cache miss for key session_abc123"
+
+  Why prepend level?
+    - Gives the model a strong prior signal before reading the message
+    - Mirrors how a human reads logs (level first, message second)
+    - Consistent with how it was trained — must match at inference time
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 3. TOKENIZER OUTPUT FEATURES (input_ids, attention_mask)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Tokenizer:   DistilBertTokenizer ("distilbert-base-uncased")
+  Vocabulary:  30,522 sub-word tokens (WordPiece)
+  Max length:  128 tokens (truncated if longer, padded if shorter)
+
+  Feature         Shape          Description
+  ─────────────   ────────────   ─────────────────────────────────────────────
+  input_ids       [128]          Integer ID for each token in the vocabulary
+  attention_mask  [128]          1 = real token, 0 = padding (ignored)
+
+  Example tokenization of "ERROR: disk full":
+    Tokens:  [CLS] error : disk full [SEP] [PAD] [PAD] ...
+    IDs:     [101, 7902, 1024, 4316, 2440, 102, 0, 0, ...]
+    Mask:    [1,   1,    1,    1,    1,    1,   0, 0, ...]
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 4. INTERNAL MODEL FEATURES (inside DistilBERT)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Layer                          Output Shape        Description
+  ─────────────────────────────  ──────────────      ────────────────────────────────────
+  Token Embedding                [128 × 768]         Each token → 768-dim vector
+  Positional Embedding           [128 × 768]         Word order awareness
+  Self-Attention (×6 layers)     [128 × 768]         Each token attends to all others
+  Feed-Forward (×6 layers)       [128 × 768]         Non-linear transformation
+  [CLS] Pooled Output            [1 × 768]           Summary of entire sequence
+  Classifier Head (dense layer)  [1 × 4]             Maps 768-dim → 4 class logits
+  Softmax                        [1 × 4]             Converts logits → probabilities
+
+  Total trainable parameters:  ~66.4 million
+  Fine-tuned parameters:       All (full fine-tune, not frozen)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 5. TARGET LABELS (Output Classes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ID    Label       Meaning
+  ──    ─────────   ──────────────────────────────────────────────────────────
+  0     LOW         Informational, normal operations (INFO, DEBUG level logs)
+  1     MEDIUM      Degraded condition, possible problem (WARN level logs)
+  2     HIGH        Serious error requiring attention (ERROR level logs)
+  3     CRITICAL    Immediate action required (crash, OOM, data loss, breach)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 6. SEMANTIC SIGNAL PATTERNS LEARNED BY THE MODEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  The model learns to associate message content with severity. Examples of
+  patterns it picks up from your fine-tuning data:
+
+  Severity    Keywords / Patterns Commonly Learned
+  ─────────   ──────────────────────────────────────────────────────────────
+  CRITICAL    segfault, core dump, out of memory, OOM, data loss, breached,
+              unauthorized access, database down, service crashed, kernel panic
+  HIGH        connection refused, timeout, exception, failed, error, rejected,
+              disk full, too many open files, deadlock, retry limit exceeded
+  MEDIUM      slow response, high memory, approaching limit, deprecated,
+              retrying, queue backing up, warning, degraded, latency spike
+  LOW         started, connected, initialized, completed, success, healthy,
+              login successful, cache hit, request processed, user created
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 7. TRAINING HYPERPARAMETERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Parameter                  Value       Reason
+  ────────────────────────   ─────────   ──────────────────────────────────────
+  base_model                 distilbert-base-uncased   Fast, small, accurate
+  num_train_epochs           4           Enough to converge without overfitting
+  per_device_train_batch     32          Fits T4 GPU VRAM (16 GB)
+  per_device_eval_batch      64          Evaluation needs less memory
+  warmup_steps               50          Prevents large early gradient updates
+  weight_decay               0.01        L2 regularization, prevents overfit
+  fp16                       True        Half-precision — 2x faster on T4 GPU
+  max_token_length           128         Covers 99% of log messages
+  train/val split            80/20       Standard split with stratification
+  metric_for_best_model      eval_loss   Saves best checkpoint across epochs
+  optimizer                  AdamW       HuggingFace Trainer default
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 8. MINIMUM TRAINING DATA REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Metric                     Minimum     Recommended
+  ────────────────────────   ─────────   ─────────────
+  Total rows                 200         1000+
+  Rows per class (each)      30          150+
+  Unique message patterns    50          300+
+
+  If CRITICAL class has very few rows → add class_weight to Trainer
+  to prevent model from ignoring rare classes.
+
+  Check distribution after running generate_training_data.js:
+    node server/ml/generate_training_data.js
+    → should print counts for LOW / MEDIUM / HIGH / CRITICAL
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 9. INFERENCE FEATURE CONTRACT (must match training exactly)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  At inference time (app.py), the input MUST be constructed identically:
+
+    text = f"{req.level.upper()}: {req.message}"
+
+  Then tokenized with the SAME tokenizer saved from training:
+
+    tokenizer = DistilBertTokenizer.from_pretrained("./model")
+
+  Any deviation from this contract will degrade accuracy.
+
+================================================================================
+  END OF FEATURE SPACE DOCUMENT
+================================================================================

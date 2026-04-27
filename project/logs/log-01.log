@@ -1,0 +1,10 @@
+2026-04-04 08:00:01 INFO system Application server started successfully on port 3001
+2026-04-04 08:00:02 INFO system Health check endpoint registered at /api/health
+2026-04-04 08:00:05 INFO database MongoDB connection established to localhost:27017
+2026-04-04 08:01:00 INFO auth User admin@example.com logged in from 192.168.1.10
+2026-04-04 08:05:12 WARNING auth Failed login attempt for user operator@example.com from 10.0.0.15
+2026-04-04 08:05:45 WARNING auth Failed login attempt for user operator@example.com from 10.0.0.15
+2026-04-04 08:06:01 ERROR security Unauthorized access attempt detected from IP 10.0.0.15 to /admin/settings
+2026-04-04 08:10:00 INFO system Scheduled backup job initiated
+2026-04-04 08:10:30 INFO system Database backup completed successfully — 245MB archived
+2026-04-04 08:15:22 WARNING performance API response time exceeded threshold: 2340ms for /api/reports
