@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-arav
+    ports: ["27017:27017"]
+    volumes: [mongo-data:/data/db]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: arav
+      MONGO_INITDB_ROOT_PASSWORD: "280820"
+      MONGO_INITDB_DATABASE: log_analyzer
+
+  redis:
+    image: redis:8.2.5-bookworm
+    container_name: angry_bohr
+    ports: ["6379:6379"]
+
+volumes:
+  mongo-data:
+    external: true

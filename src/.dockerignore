@@ -1,0 +1,11 @@
+**/node_modules
+**/npm-debug.log*
+.git
+.gitignore
+**/coverage
+**/dist
+server/tests
+server/output
+server/uploads
+server/.env
+*.local

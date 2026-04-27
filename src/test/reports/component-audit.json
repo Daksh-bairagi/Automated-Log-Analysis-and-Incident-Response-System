@@ -1,0 +1,881 @@
+{
+  "generatedAt": "2026-04-15T08:18:59.293Z",
+  "sections": [
+    {
+      "title": "Server Source vs Unit Tests",
+      "items": [
+        {
+          "component": "server/src/app.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/cli/runCli.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/config/alertChannels.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/config/env.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/config/parserFormats.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/config/playbooks.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/config/rules.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/controllers/analysisController.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/controllers/authController.js",
+          "verification": [
+            "server/tests/unit/authController.test.js"
+          ]
+        },
+        {
+          "component": "server/src/controllers/reportController.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/controllers/streamIngestController.js",
+          "verification": [
+            "server/tests/unit/streamIngestController.test.js"
+          ]
+        },
+        {
+          "component": "server/src/controllers/uploadController.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/db/MongoDatabase.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/middleware/audit.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/middleware/auth.js",
+          "verification": [
+            "server/tests/unit/authController.test.js"
+          ]
+        },
+        {
+          "component": "server/src/middleware/errorHandler.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/middleware/rateLimiter.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/middleware/rbac.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/middleware/uploadMiddleware.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/middleware/validate.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/models/AlertEvent.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/models/AuditLog.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/models/FileUser.js",
+          "verification": [
+            "server/tests/unit/FileUser.test.js"
+          ]
+        },
+        {
+          "component": "server/src/models/IncidentRecord.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/models/LogEntry.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/models/Report.js",
+          "verification": [
+            "server/tests/unit/ReportExporter.test.js"
+          ]
+        },
+        {
+          "component": "server/src/models/User.js",
+          "verification": [
+            "server/tests/unit/FileUser.test.js"
+          ]
+        },
+        {
+          "component": "server/src/queues/jobs.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/queues/processors/analysisProcessor.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/queues/processors/notificationProcessor.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/queues/queueManager.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/repositories/AuditRepository.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/repositories/FileRepository.js",
+          "verification": [
+            "server/tests/unit/FileRepository.test.js"
+          ]
+        },
+        {
+          "component": "server/src/repositories/MongoRepository.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/routes/analysisRoutes.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/routes/authRoutes.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/routes/index.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/routes/reportRoutes.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/routes/streamIngestRoutes.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/routes/streamRoutes.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/routes/uploadRoutes.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/server.js",
+          "verification": [
+            "server/tests/unit/AnalysisEngine.test.js",
+            "server/tests/unit/authController.test.js",
+            "server/tests/unit/CorrelationEngine.test.js",
+            "server/tests/unit/FileRepository.test.js",
+            "server/tests/unit/FileUser.test.js",
+            "server/tests/unit/GoogleChatChannel.test.js",
+            "server/tests/unit/IncidentDetector.test.js",
+            "server/tests/unit/IncidentOrchestrator.test.js",
+            "server/tests/unit/LogSourceResolver.test.js",
+            "server/tests/unit/NotificationService.test.js",
+            "server/tests/unit/parsers/AllParsers.test.js",
+            "server/tests/unit/parsers/ParserFactory.test.js",
+            "server/tests/unit/PdfAnalysisService.test.js",
+            "server/tests/unit/ReportExporter.test.js",
+            "server/tests/unit/ResponsePlanner.test.js",
+            "server/tests/unit/SeverityClassifier.test.js",
+            "server/tests/unit/streamIngestController.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/analysis/AnalysisEngine.js",
+          "verification": [
+            "server/tests/unit/AnalysisEngine.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/analysis/CorrelationEngine.js",
+          "verification": [
+            "server/tests/unit/CorrelationEngine.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/analysis/IncidentDetector.js",
+          "verification": [
+            "server/tests/unit/IncidentDetector.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/analysis/MLClassifierClient.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/analysis/SeverityClassifier.js",
+          "verification": [
+            "server/tests/unit/SeverityClassifier.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/analysis/ThresholdMonitor.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/IncidentOrchestrator.js",
+          "verification": [
+            "server/tests/unit/IncidentOrchestrator.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/ingestion/LogReader.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/ingestion/LogSourceResolver.js",
+          "verification": [
+            "server/tests/unit/LogSourceResolver.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/ingestion/ValidationService.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/notification/AlertDeduplicator.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/notification/channels/EmailChannel.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/notification/channels/GoogleChatChannel.js",
+          "verification": [
+            "server/tests/unit/GoogleChatChannel.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/notification/channels/SlackChannel.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/notification/channels/WebhookChannel.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/notification/EscalationPolicy.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/notification/NotificationService.js",
+          "verification": [
+            "server/tests/unit/NotificationService.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/parsing/FormatDetector.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/parsing/Normalizer.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/parsing/ParserFactory.js",
+          "verification": [
+            "server/tests/unit/parsers/ParserFactory.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/parsing/parsers/ApacheParser.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/GenericParser.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/JsonLogParser.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/SpaceDelimitedParser.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/SyslogParser.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/parsing/PdfAnalysisService.js",
+          "verification": [
+            "server/tests/unit/PdfAnalysisService.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/realtime/LiveAnalyzer.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/realtime/LogStreamWatcher.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/realtime/StreamEventEmitter.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/realtime/WebSocketManager.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/reporting/ReportBuilder.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/reporting/ReportExporter.js",
+          "verification": [
+            "server/tests/unit/ReportExporter.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/reporting/ReportViewModelBuilder.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/response/PlaybookRegistry.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/services/response/ResponsePlanner.js",
+          "verification": [
+            "server/tests/unit/ResponsePlanner.test.js"
+          ]
+        },
+        {
+          "component": "server/src/utils/CommandLineUI.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/utils/errors.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/utils/logger.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        },
+        {
+          "component": "server/src/utils/retry.js",
+          "verification": "Covered indirectly by integration or pending dedicated unit test"
+        }
+      ]
+    },
+    {
+      "title": "Server Source vs Integration Tests",
+      "items": [
+        {
+          "component": "server/src/app.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/cli/runCli.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/config/alertChannels.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/config/env.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/config/parserFormats.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/config/playbooks.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/config/rules.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/controllers/analysisController.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/controllers/authController.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/controllers/reportController.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/controllers/streamIngestController.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/controllers/uploadController.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/db/MongoDatabase.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/middleware/audit.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/middleware/auth.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/middleware/errorHandler.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/middleware/rateLimiter.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/middleware/rbac.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/middleware/uploadMiddleware.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/middleware/validate.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/models/AlertEvent.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/models/AuditLog.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/models/FileUser.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/models/IncidentRecord.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/models/LogEntry.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/models/Report.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/models/User.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/queues/jobs.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/queues/processors/analysisProcessor.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/queues/processors/notificationProcessor.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/queues/queueManager.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/repositories/AuditRepository.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/repositories/FileRepository.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/repositories/MongoRepository.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/routes/analysisRoutes.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/routes/authRoutes.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/routes/index.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/routes/reportRoutes.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/routes/streamIngestRoutes.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/routes/streamRoutes.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/routes/uploadRoutes.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/server.js",
+          "verification": [
+            "server/tests/integration/analysisApi.test.js",
+            "server/tests/integration/hardEdgeSecurity.test.js",
+            "server/tests/integration/upload.test.js",
+            "server/tests/integration/websocket.test.js"
+          ]
+        },
+        {
+          "component": "server/src/services/analysis/AnalysisEngine.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/analysis/CorrelationEngine.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/analysis/IncidentDetector.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/analysis/MLClassifierClient.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/analysis/SeverityClassifier.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/analysis/ThresholdMonitor.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/IncidentOrchestrator.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/ingestion/LogReader.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/ingestion/LogSourceResolver.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/ingestion/ValidationService.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/notification/AlertDeduplicator.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/notification/channels/EmailChannel.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/notification/channels/GoogleChatChannel.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/notification/channels/SlackChannel.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/notification/channels/WebhookChannel.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/notification/EscalationPolicy.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/notification/NotificationService.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/FormatDetector.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/Normalizer.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/ParserFactory.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/ApacheParser.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/GenericParser.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/JsonLogParser.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/SpaceDelimitedParser.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/parsers/SyslogParser.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/parsing/PdfAnalysisService.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/realtime/LiveAnalyzer.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/realtime/LogStreamWatcher.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/realtime/StreamEventEmitter.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/realtime/WebSocketManager.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/reporting/ReportBuilder.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/reporting/ReportExporter.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/reporting/ReportViewModelBuilder.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/response/PlaybookRegistry.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/services/response/ResponsePlanner.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/utils/CommandLineUI.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/utils/errors.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/utils/logger.js",
+          "verification": "Not directly named in integration suite"
+        },
+        {
+          "component": "server/src/utils/retry.js",
+          "verification": "Not directly named in integration suite"
+        }
+      ]
+    },
+    {
+      "title": "Client Source Verification",
+      "items": [
+        {
+          "component": "client/src/App.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/AlertBanner.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/AnalyzedFileList.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/ConnectionStatus.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/DashboardActions.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/IncidentDetails.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/IncidentFilters.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/IncidentList.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/IncidentTimeline.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/LoadingSpinner.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/LogTerminal.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/SeverityBreakdown.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/StoredUploadList.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/SummaryCards.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/components/UploadZone.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/contexts/AuthContext.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/features/dashboard/IncidentDashboard.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/hooks/useFileUpload.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/hooks/useIncidentDashboard.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/hooks/useLogStream.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/hooks/useStreamIngest.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/hooks/useWebSocket.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/layouts/MainLayout.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/main.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/DashboardPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/LiveStreamPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/LoginPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/RegisterPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/ReportPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/StreamIngestPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/UploadDetailsPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/pages/UploadPage.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/routes/AppRoutes.jsx",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/services/apiClient.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/services/authApi.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/services/incidentApi.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/services/streamIngestApi.js",
+          "verification": "Verified by client lint + production build"
+        },
+        {
+          "component": "client/src/services/uploadApi.js",
+          "verification": "Verified by client lint + production build"
+        }
+      ]
+    }
+  ]
+}
