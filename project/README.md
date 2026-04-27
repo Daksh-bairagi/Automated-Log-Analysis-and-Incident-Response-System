@@ -23,7 +23,7 @@ A production-grade observability and incident response platform that ingests, pa
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 Logs come in → Detect format → Pick parser → Parse → Normalize
@@ -68,7 +68,7 @@ Logs come in → Detect format → Pick parser → Parse → Normalize
 
 ---
 
-## 🚀 Quick Start (Docker Compose)
+##  Quick Start (Docker Compose)
 
 > **Prerequisites:** Docker Desktop must be running.
 
@@ -170,7 +170,7 @@ The `logs/` directory includes samples for every parser:
 
 ---
 
-## 🖼️ Dashboard Pages
+##  Dashboard Pages
 
 | Page | Route | Description |
 |---|---|---|
@@ -181,7 +181,7 @@ The `logs/` directory includes samples for every parser:
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 cd server && npm test
