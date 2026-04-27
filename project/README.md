@@ -1,10 +1,10 @@
-# 🔍 Automated Log Analysis & Incident Response System
+#  Automated Log Analysis & Incident Response System
 
 A production-grade observability and incident response platform that ingests, parses, classifies, and correlates logs from any source — then auto-assigns playbooks, alerts the team, and streams everything live to a dark-mode dashboard.
 
 ---
 
-## ✨ Features
+##  Features
 
 | # | Capability | How |
 |---|---|---|
@@ -46,7 +46,7 @@ Logs come in → Detect format → Pick parser → Parse → Normalize
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -88,7 +88,7 @@ The server API runs on **port 3001**, the React dashboard on **port 5173**.
 
 ---
 
-## 🖥️ Local Development
+##  Local Development
 
 ### Server
 
@@ -155,7 +155,7 @@ WATCH_LOG_DIR=./logs       # Directory to watch for live streaming
 
 ---
 
-## 📁 Sample Log Files
+##  Sample Log Files
 
 The `logs/` directory includes samples for every parser:
 
@@ -193,7 +193,7 @@ Test coverage includes:
 
 ---
 
-## 📦 Project Structure
+##  Project Structure
 
 ```
 log-analyzer/
@@ -230,7 +230,7 @@ log-analyzer/
 
 ---
 
-## ✅ Project Complete
+##  Project Complete
 
 Built following the **Final Roadmap** — all 27 days of deliverables shipped:
 
